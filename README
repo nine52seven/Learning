@@ -52,8 +52,15 @@
                 ...
             class student(member):
                 ...
-
-
+        支持多重继承
+        eg:
+            class member:
+                ...
+            class class:
+                ...
+            class student(member,class):
+                ...
+            
 -方法 method
     --关键字 def
     
@@ -116,6 +123,22 @@
         然后是可选参数,
         然后接受任意参数,
         最后是带名字的任意参数.
+        
+    --静态方法 static
+        利用staticmehod(function)的重定义实现，而非关键字
+        eg:
+            >>> class Clazz:
+                 def methodA():     #不能有self
+                     print "Hello, World."
+                 methodA = staticmethod(methodA)
+
+            >>> Clazz.methodA()
+            Hello, World.
+            >>> clazz = Clazz()
+            >>> clazz.methodA()
+            Hello, World.
+        
+        
 
     --特殊的方法
         在类中有一些特殊的方法具有特殊的意义，比如:
