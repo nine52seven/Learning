@@ -195,6 +195,19 @@
             >>> 0 and a or b 2
             'second'
 
-    
+-python连接mysql
+    使用: http://mysql-python.sourceforge.net/
+    api: http://mysql-python.sourceforge.net/MySQLdb-1.2.2/
+    e.g.
+        conn = MySQLdb.connect (host = "dbserver",
+                                user = "dbusername",
+                                passwd = "dbpassword",
+                                db = "db")
+        cursor = conn.cursor()
+        cursor.execute ("SELECT VERSION()")
+        row = cursor.fetchone()
+        print "server version:", row[0]
+        cursor.close ()
+        conn.close ()
     
     
