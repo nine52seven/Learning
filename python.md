@@ -142,7 +142,7 @@ def printValues(name, height = 170, weight)
     
     关键参数: 方法调用的时候可以不用传递所有参数,使用名字而不是位置来指定
         
-    ```python
+    ```
 def func(a, b=5, c=10):
     print 'a is', a, 'and b is', b, 'and c is', c
 func(3, 7)              # a=3, b=7, c=10
