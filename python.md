@@ -273,10 +273,10 @@ world
     ```
 
 - **python连接mysql**
-
-    使用: http://mysql-python.sourceforge.net/
     
-    api: http://mysql-python.sourceforge.net/MySQLdb-1.2.2/
+    使用: [http://mysql-python.sourceforge.net/](http://mysql-python.sourceforge.net/)
+    
+    api: [http://mysql-python.sourceforge.net/MySQLdb-1.2.2/](http://mysql-python.sourceforge.net/MySQLdb-1.2.2/)
     
     ```
 conn = MySQLdb.connect (host = "dbserver",
