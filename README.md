@@ -7,10 +7,9 @@
  
 #### * keepalived+mysqlMM
 
-#### * other
+#### * [sublime Text 2](https://github.com/chaing/Learning/blob/master/Sublime%20Text%202%20%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE[Mac%20OS%20X])
 
 ---
-
 
 
 ###### [@nine52seven](https://twitter.com/nine52seven)
