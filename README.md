@@ -11,5 +11,17 @@
 
 ---
 
+### 打开/前往
+
+Command | Comment |
+:----------- | 
+⌘T           | 前往文件
+⌘⌃P          | 前往项目
+⌘R           | 前往 method
+⌘⇧P          | 命令提示
+⌃G           | 前往行
+⌘KB          | 开关侧栏
+⌃ `          | python 控制台
+⌘⇧N          | 新建窗口
 
 ###### [@nine52seven](https://twitter.com/nine52seven)
