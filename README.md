@@ -11,15 +11,4 @@
 
 ---
 
-### 打开/前往
-<table>
-	<tr><td>⌘T</td><td>前往文件</td></tr>
-	<tr><td>⌘⌃P</td><td>前往项目</td></tr>
-	<tr><td>⌘R</td><td>前往 method</td></tr>
-	<tr><td>⌘⇧P </td><td>命令提示</td></tr>
-	<tr><td>⌃G </td><td>前往行</td></tr>
-	<tr><td>⌘KB </td><td>开关侧栏</td></tr>
-	<tr><td>⌃ `</td><td>python 控制台</td></tr>
-	<tr><td>⌘⇧N </td><td>新建窗口</td></tr>
-</table>
 ###### [@nine52seven](https://twitter.com/nine52seven)
