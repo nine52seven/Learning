@@ -9,6 +9,8 @@
 
 #### * [sublime Text 2](https://github.com/chaing/Learning/blob/master/SublimeText2.md)
 
+#### * [markdown syntax](https://github.com/chaing/Learning/blob/master/markdown.md)
+
 ---
 ---
 ----
