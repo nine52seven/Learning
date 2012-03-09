@@ -1,4 +1,5 @@
-# git 使用:
+git 使用
+========
 
 * 权限管理器 Gitosis 安装
 
@@ -143,9 +144,10 @@ $ git checkout master
 $ git merge "Merge work in robin" HEAD branch-name
   ```
 
-*注意:* **git不能添加空目录到索引里,可以在空目录下添加一个 **.gitignore** 的空文件,然后 *git add dir/.gitignore*
+*注意:* **git不能添加空目录到索引里,可以在空目录下添加一个 **\.gitignore** 的空文件,然后 *git add dir/.gitignore*
 
 使用下面的目录可以遍历添加:
+
   ```
 $ find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;
   ```
