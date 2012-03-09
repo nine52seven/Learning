@@ -142,3 +142,8 @@ $ git diff
 $ git checkout master
 $ git merge "Merge work in robin" HEAD branch-name
   ```
+
+*注意:* **git不能添加空目录到索引里,可以在空目录下添加一个.gitignore的空文件,使用下面的目录可以遍历添加:
+  ```
+$ find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;
+  ```
