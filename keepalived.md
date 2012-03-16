@@ -14,12 +14,12 @@ global_defs {
 }
 
 vrrp_instance VI_1 {
-    state BACKUP
+    state BACKUP    //都是BACKUP
     interface eth0
-    virtual_router_id 60
-    priority 100
+    virtual_router_id 60    //一样
+    priority 100            //另一个要小于这个值
     advert_int 1
-    nopreempt
+    nopreempt               //另一个不需要
     authentication {
         auth_type PASS
         auth_pass 4321
@@ -39,10 +39,10 @@ virtual_server 211.103.155.45 3306 {
     weight 3
     notify_down /usr/local/mysql/bin/mysql.sh 
     TCP_CHECK {
-    connect_timeout 10
-    nb_get_retry 3
-    delay_before_retry 3
-    connect_port 3306
+        connect_timeout 10
+        nb_get_retry 3
+        delay_before_retry 3
+        connect_port 3306
     }
 }
 ```
