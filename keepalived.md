@@ -2,9 +2,21 @@
 此文档主要是实现用keepalived来实现对mysqlMM的ha处理,实现当一台Mysql出现故障的时候,自动切换到备用Mysql上,两个Mysql实现互为Master数据同步.
 
 ### mysql 双master配置
-两台 mysql 均如要开启 binlog 日志功能,开启方法:在 mysql 配置文件[mysqld]段中加上 log-bin=mysql-bin 选项
+两台 mysql 均如要开启 binlog 日志功能,两台 mysql 的 server-ID 不能一样,默认情况下两台 mysql 的 serverID 都是 1,需将其中一台 修改为 2 即可
 
-两台 mysql 的 server-ID 不能一样,默认情况下两台 mysql 的 serverID 都是 1,需将其中一台 修改为 2 即可
+192.168.1.201 /etc/my.cnf:
+
+```ruby
+server-id               = 1
+log_bin                 = /var/log/mysql/mysql-bin.log
+```
+
+192.168.1.202 /etc/my.cnf:
+
+```ruby
+server-id               = 2
+log_bin                 = /var/log/mysql/mysql-bin.log
+```
 
 将 192.168.1.201 设为 192.168.1.202 的主服务器, 在192.168.1.201添加同步授权账号
 
