@@ -1,10 +1,10 @@
 # keepalived + mysql MM
 此文档主要是实现用keepalived来实现对mysqlMM的ha处理,实现当一台Mysql出现故障的时候,自动切换到备用Mysql上,两个Mysql实现互为Master数据同步.
 
-### mysql 双master配置
-两台 mysql 均如要开启 binlog 日志功能,两台 mysql 的 server-ID 不能一样,默认情况下两台 mysql 的 serverID 都是 1,需将其中一台 修改为 2 即可
-
 两台mysql realserver: 192.168.1.201, 192.168.1.202, 虚拟ip 192.168.1.200
+
+### mysql 双master配置
+两台 mysql 均如要开启 binlog 日志功能,两台 mysql 的 server-ID 不能一样
 
 192.168.1.201 /etc/my.cnf:
 
@@ -69,6 +69,7 @@ mysql 同步测试
 
 如上述均正确配置,现在任何一台 mysql 上更新数据都会同步到另一台 mysql,mysql 同步 在此不再演示
 
+***
 
 ### 安装keepalived
 
@@ -106,7 +107,7 @@ IPVS sync daemon support : No
 yum install openssl-devel
 ```
 
-
+***
 
 ### keepalived 配置文件 /etc/keepalived/keepalived.conf
 
@@ -217,6 +218,7 @@ Mar 19 12:20:00 bank7 Keepalived_vrrp: VRRP sockpool: [ifindex(2), proto(112), f
 ip a
 ```
 
+***
 ### 测试
 在另外的机器上连接虚拟ip的mysql服务,停止mysql,备用机会自动托管虚拟ip,时间很短
 
