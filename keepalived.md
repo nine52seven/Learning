@@ -135,7 +135,7 @@ make & make install
 yum install openssl-devel openssl
 ```
 
-注意：make步骤中若出现fd_set、blkcnt_t类型冲突之类的错误，可以修改./keepalived/libipvs-2.6/ip_vs.h文件，将#include linux/types.h行移到#include sys/types.h行之后，然后重新执行make进行编译即可。
+注意：make步骤中若出现fd_set、blkcnt_t类型冲突之类的错误，可以修改[./keepalived/libipvs-2.6/ip_vs.h]文件，将[#include linux/types.h]行移到[#include sys/types.h]行之后，然后重新执行make进行编译即可。
 
 ```ruby
 # vi keepalived/libipvs-2.6/ip_vs.h
@@ -265,7 +265,23 @@ Mar 19 12:20:00 bank7 Keepalived_vrrp: VRRP sockpool: [ifindex(2), proto(112), f
 可以用下面命令查看当前虚拟ip在哪个机器上:
 
 ```ruby
-ip a
+# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 1000
+    link/ether 00:13:72:fb:da:8f brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.201/24 brd 192.168.1.255 scope global eth0
+    inet 192.168.1.200/32 scope global eth0
+    inet6 fe80::213:72ff:fefb:da8f/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop qlen 1000
+    link/ether 00:13:72:fb:da:91 brd ff:ff:ff:ff:ff:ff
+4: sit0: <NOARP> mtu 1480 qdisc noop 
+    link/sit 0.0.0.0 brd 0.0.0.0
+
 ```
 
 ***
