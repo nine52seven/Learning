@@ -5,7 +5,7 @@
    
 #### * [git](https://github.com/chaing/Learning/blob/master/git.md)
  
-#### * keepalived+mysqlMM
+#### * [keepalived+mysqlMM](https://github.com/chaing/Learning/blob/master/keepalived.md)
 
 #### * [sublime Text 2](https://github.com/chaing/Learning/blob/master/SublimeText2.md)
 
