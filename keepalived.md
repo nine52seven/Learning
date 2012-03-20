@@ -73,27 +73,58 @@ mysql 同步测试
 
 ### 安装keepalived
 
-下载: [keepalived](http://www.keepalived.org/), 需要先安装 ipvsadm,
-
-```ruby
-yum install ipvsadm
-```
-安装keepalived:
+下载: [keepalived](http://www.keepalived.org/), 安装keepalived:
 
 ```ruby
 #tar zxvf keepalived-1.1.20.tar.gz
 #cd keepalived-1.1.20
-#./configure --prefix=/usr/local/keepalived --with-kernel-dir=/usr/src/kernels/2.6.18-164.el5-i686 
-#make && make install
+#./configure --prefix=/usr/local/keepalived --with-kernel-dir=/usr/src/linux    //指定安装路径和内核
 ```
 
-如果没有/usr/src/kernels/2.6.18-164.el5-i686此目录,需要安装 kernel-devel ,
-
-如果没有找到内核文件,会出现以下信息
+如果显示如下:
 
 ```ruby
+Keepalived configuration
+------------------------
+Keepalived version       : 1.2.2
+Compiler                 : gcc
+Compiler flags           : -g -O2 -DETHERTYPE_IPV6=0x86dd
+Extra Lib                : -lpopt -lssl -lcrypto 
+Use IPVS Framework       : No
 IPVS sync daemon support : No
+Use VRRP Framework       : Yes
+Use Debug flags          : No
 ```
+
+IPVS显示为No的话,需要安装 ipvsadm,以及kernel-devel:
+
+```ruby
+yum install ipvsadm
+yum install kernel-devel
+ln -s /usr/src/kernels/2.6.18-308.1.1.el5-i686 linux
+```
+
+配置成功显示:
+
+```ruby
+Keepalived configuration
+------------------------
+Keepalived version       : 1.2.2
+Compiler                 : gcc
+Compiler flags           : -g -O2 -DETHERTYPE_IPV6=0x86dd
+Extra Lib                : -lpopt -lssl -lcrypto 
+Use IPVS Framework       : Yes
+IPVS sync daemon support : Yes
+IPVS use libnl           : No
+Use VRRP Framework       : Yes
+Use Debug flags          : No
+```
+然后编译安装:
+
+```ruby
+make & make install
+```
+
 
 如果编译的时候出现:
 
@@ -104,7 +135,29 @@ IPVS sync daemon support : No
 需要安装openssl
 
 ```ruby
-yum install openssl-devel
+yum install openssl-devel openssl
+```
+
+注意：make步骤中若出现fd_set、blkcnt_t类型冲突之类的错误，可以修改./keepalived/libipvs-2.6/ip_vs.h文件，将#include linux/types.h行移到#include sys/types.h行之后，然后重新执行make进行编译即可。
+
+```ruby
+# vi keepalived/libipvs-2.6/ip_vs.h
+……
+#include sys/types.h
+#include linux/types.h 
+……
+
+#make & make install
+```
+
+拷贝keepalived的配置文件到/etc目录下:
+
+```ruby
+# cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/rc.d/init.d/ 
+# cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig 
+# mkdir /etc/keepalived 
+# cp /usr/local/keepalived/etc/keepalived/keepalived.conf /etc/keepalived 
+# cp /usr/local/keepalived/sbin/keepalived /usr/sbin
 ```
 
 ***
