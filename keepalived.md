@@ -79,11 +79,8 @@ mysql 同步测试
 #tar zxvf keepalived-1.1.20.tar.gz
 #cd keepalived-1.1.20
 #./configure --prefix=/usr/local/keepalived --with-kernel-dir=/usr/src/linux    //指定安装路径和内核
-```
+......
 
-如果显示如下:
-
-```ruby
 Keepalived configuration
 ------------------------
 Keepalived version       : 1.2.2
