@@ -135,7 +135,7 @@ make & make install
 yum install openssl-devel openssl
 ```
 
-注意：make步骤中若出现fd_set、blkcnt_t类型冲突之类的错误，可以修改[./keepalived/libipvs-2.6/ip_vs.h]文件，将[#include linux/types.h]行移到[#include sys/types.h]行之后，然后重新执行make进行编译即可。
+注意：make步骤中若出现fd_set、blkcnt_t类型冲突之类的错误，可以修改**./keepalived/libipvs-2.6/ip_vs.h**文件，将**#include linux/types.h**行移到**#include sys/types.h**行之后，然后重新执行make进行编译即可。
 
 ```ruby
 # vi keepalived/libipvs-2.6/ip_vs.h
