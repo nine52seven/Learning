@@ -1,8 +1,8 @@
 # some tip about mac...
 
----- 卸载xcode
+* 卸载xcode
 
-```ruby
-sudo /Developer/Library/uninstall-devtools --mode=all
-```
+    ```ruby
+    sudo /Developer/Library/uninstall-devtools --mode=all
+    ```
 
