@@ -107,6 +107,24 @@ RPAFsethostname On
 RPAFproxy_ips 192.168.0.1       #nginx ip,如果前端有多个,可以空格间隔
 RPAFheader X-Forwarded-For
 ```
+启动nginx:
+
+```ruby
+/usr/local/nginx/sbin/nginx
+```
+
+停止:
+
+```ruby
+/usr/local/nginx/sbin/nginx -s quit
+```
+
+重载配置文件:
+
+```ruby
+/usr/local/nginx/sbin/nginx -s reload
+```
+
 
 
 
