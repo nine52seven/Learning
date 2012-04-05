@@ -7,17 +7,17 @@ keepalived + mysql MM
 
 
 
-### mysql 双master配置
+mysql 双master配置
 ---------------------
 
 两台 mysql 均如要开启 `binlog` 日志功能,两台 mysql 的 `server-ID` 不能一样
 
-`192.168.1.201` /etc/my.cnf:
+`192.168.1.201 /etc/my.cnf`:
 
     server-id               = 1
     log_bin                 = /var/log/mysql/mysql-bin.log
 
-`192.168.1.202` /etc/my.cnf:
+`192.168.1.202 /etc/my.cnf`:
 
     server-id               = 2
     log_bin                 = /var/log/mysql/mysql-bin.log
@@ -66,7 +66,7 @@ mysql 同步测试
 
 
 
-### 安装keepalived
+安装keepalived
 ------------------
 
 下载: [keepalived](http://www.keepalived.org/), 安装keepalived:
@@ -136,7 +136,7 @@ IPVS显示为No的话,需要安装 `ipvsadm` ,以及 `kernel-devel` :
 
     apt-get install libpopt0 libpopt-dev
 
-注意：make步骤中若出现 `fd_set` 、`blkcnt_t` 类型冲突之类的错误，可以修改 **./keepalived/libipvs-2.6/ip_vs.h** 文件，将 **#include linux/types.h** 行移到 **#include sys/types.h** 行之后，然后重新执行make进行编译即可。
+注意：make步骤中若出现 `fd_set` 、`blkcnt_t` 类型冲突之类的错误，可以修改 `./keepalived/libipvs-2.6/ip_vs.h` 文件，将 `#include linux/types.h` 行移到 `#include sys/types.h` 行之后，然后重新执行make进行编译即可。
 
     # vi keepalived/libipvs-2.6/ip_vs.h
     ……
@@ -156,7 +156,7 @@ IPVS显示为No的话,需要安装 `ipvsadm` ,以及 `kernel-devel` :
 
 
 
-### keepalived 配置文件 `/etc/keepalived/keepalived.conf`
+keepalived 配置文件 `/etc/keepalived/keepalived.conf`
 -------------------------------------------------------
 
 keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样例如下:
@@ -271,17 +271,17 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
         link/sit 0.0.0.0 brd 0.0.0.0
 
 
-### 测试
---------
+测试
+----
 
 在另外的机器上连接虚拟ip的mysql服务,停止mysql,备用机会自动托管虚拟ip,时间很短.
 
 **注意** : 这样的切换是在两台mysql服务器能够瞬时同步的基础上的,如果两台服务器同步很慢,那切换的时候会出问题的,特别是有自增长字段的时候.所以还需要对mysql的同步状态做进一步的检查.
 
-**注意** : 检查mysql是否同步的时候可以使用 `show slave status;` ,显示的信息里有个 **Seconds_Behind_Master**, 可以判断是否同步一致
+**注意** : 检查mysql是否同步的时候可以使用 `show slave status;` ,显示的信息里有个 `Seconds_Behind_Master`, 可以判断是否同步一致
 
 **注意** : 还要检查各机器的防火墙设置
     
-***
+---
 END, good luck!
     

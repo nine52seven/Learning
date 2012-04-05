@@ -1,5 +1,5 @@
-## 这里记录一些文档...
----
+这里记录一些文档...
+================
 
 * [git](https://github.com/chaing/Learning/blob/master/git.md)
 
@@ -15,6 +15,7 @@
 
 * [nginx](https://github.com/chaing/Learning/blob/master/nginx.md)
 
-----
+* [linuxTip](https://github.com/chaing/Learning/blob/master/linuxTip.md)
 
+----
 [@nine52seven](https://twitter.com/nine52seven)

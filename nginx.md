@@ -1,10 +1,11 @@
 some tip about nginx...
------------------------
+=======================
 
 > [Nginx ("engine x")](http://nginx.org) 是一个高性能的 HTTP 和 反向代理 服务器
 
 
-### 安装nginx
+安装nginx
+---------
 
 网站下载: http://nginx.org 解压.
 
@@ -20,7 +21,8 @@ some tip about nginx...
                 --with-http_realip_module   \           #
                 --add-module=/root/nginx_module/nginx_upload_module-2.2.0   #第三方模块 上传处理
 
-### 配置nginx
+配置nginx
+---------
 
 安装完以后,简单的配置文件:
 
@@ -87,7 +89,8 @@ some tip about nginx...
         }
     }
 
-### 其他设置
+其他设置
+-------
 
 nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所在服务器ip,要获得真实的客户端ip,apache需要安装一个模块:
 
@@ -126,7 +129,8 @@ nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所�
         rewrite ^/(.*)$ http://www.xxx.com/$1 permanent;
     }
 
-### 优化
+优化
+----
 
 多核cpu,可以使用下面命令查看服务器cpu:
 
@@ -164,8 +168,8 @@ nginx设置:
     /usr/local/nginx/sbin/nginx -s reload
 
 
-***
-
+---
+END
 
 
 

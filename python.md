@@ -1,7 +1,7 @@
 python 学习笔记
---------------
+===============
 
-### 数据的结构
+数据的结构
 - **列表 list**
   
     list是处理一组有序项目的数据结构,"[]"包围
@@ -34,27 +34,28 @@ python 学习笔记
     
     value: 可以不可变或可变的对象
     
-    ``
-d = {key1 : value1, key2 : value2 }
-    ``
+    d = {key1 : value1, key2 : value2 }
+    
+
 - **序列**
   
     列表、元组和字符串都是序列,序列的两个主要特点是索引操作符和切片操作符
     
-  - - -
 
-### 类 class
+类 class
+--------
+
 - **self**
   
     class中的function必须带有self参数,为第一个参数,python中的self等同于java/php中的this
     
-    ``
-class Person:
-        def sayHi(self):
-            print 'Hello, how are you?'
-p = Person()
-p.sayHi()
-    ``
+
+        class Person:
+                def sayHi(self):
+                    print 'Hello, how are you?'
+        p = Person()
+        p.sayHi()
+
 
 - **\_\_init\_\_方法**
   
@@ -74,24 +75,24 @@ p.sayHi()
     子类的名称后面加上父类的名称
     注意: 子类不会自动调用父类的\_\_init\_\_函数
     
-    ``
-class member:
-    ...
-class student(member):
-    ...
-    ``
+
+        class member:
+            ...
+        class student(member):
+            ...
+
     支持多重继承
     
-    ``
-class member:
-    ...
-class class:
-    ...
-class student(member,class):
-    ...
-    ``
+        class member:
+            ...
+        class class:
+            ...
+        class student(member,class):
+            ...
 
-### 方法 method
+
+方法 method
+-----------
 
 - **关键字 def**
 
@@ -111,56 +112,49 @@ class student(member,class):
     
     可以使用"\_\_doc\_\_"调用
         
-    ``
-def  testfun():
-    """
-Testfun().
-    ``
-    This  function  do  nothing,  just  demostrate  the  use  of  the
-    doc  string.
-    """
-        pass
+        def  testfun():
+            """
+        Testfun().
+
+        This  function  do  nothing,  just  demostrate  the  use  of  the
+        doc  string.
+        """
+            pass
 
 - **参数默认值**
     
     不能在声明函数形参的时候，先声明有默认值的形参而后声明没有默认值的形参。
     right:
         
-    ``
-def printValues(name, height = 170, weight = 60)
-    ...
-error:
-def printValues(name, height = 170, weight)
-        ...
-    ``
+        def printValues(name, height = 170, weight = 60)
+            ...
+        error:
+        def printValues(name, height = 170, weight)
+                ...
+
 
 - **多参数传递**
     
     关键参数: 方法调用的时候可以不用传递所有参数,使用名字而不是位置来指定
         
-    ``
-def func(a, b=5, c=10):
-    print 'a is', a, 'and b is', b, 'and c is', c
-func(3, 7)              # a=3, b=7, c=10
-func(25, c=24)          # a=25, b=5, c=24
-func(c=50, a=100)       # a=100, b=5, c=50    
-    ``
+        def func(a, b=5, c=10):
+            print 'a is', a, 'and b is', b, 'and c is', c
+        func(3, 7)              # a=3, b=7, c=10
+        func(25, c=24)          # a=25, b=5, c=24
+        func(c=50, a=100)       # a=100, b=5, c=50    
 
 - **任意参数**
 
-    ``
-def  printf(format,*arg):
-    ...
-    ``
+        def  printf(format,*arg):
+            ...
 
     \*arg必须为方法的最后一个参数
 
     \*表示接受任意多个参数,除了前面的参数,多余的参数都作为一个元组传递,可以通过arg来访问
 
-    ``
-def  printf(format,**keyword):
-    ...
-    ``
+        def  printf(format,**keyword):
+            ...
+
     \*\*表示接受任意多个参数,并作为一个"字典"传递.
     
     如果有*arg必须放在**keyword前面
@@ -177,19 +171,17 @@ def  printf(format,**keyword):
 
 - **静态方法 static**
     
-    利用staticmehod(function)的重定义实现，而非关键字
+    利用 `staticmehod(function)` 的重定义实现，而非关键字
         
-    ``
->>> class Clazz:
-        def methodA():     #不能有self
-            print "Hello, World."
-        methodA = staticmethod(methodA)
->>> Clazz.methodA()
-Hello, World.
->>> clazz = Clazz()
->>> clazz.methodA()
-Hello, World.
-    ``
+        >>> class Clazz:
+                def methodA():     #不能有self
+                    print "Hello, World."
+                methodA = staticmethod(methodA)
+        >>> Clazz.methodA()
+        Hello, World.
+        >>> clazz = Clazz()
+        >>> clazz.methodA()
+        Hello, World.
 
 - **特殊的方法**
     
@@ -220,16 +212,14 @@ Hello, World.
 
     这些方法可以实现操作符重载
         
-    ``
-class P:
-    def __call__(self, *arg):   #让class像方法一样,可以调用
-        for k in arg:
-            print k
-p = P()
-p("hello","world")
-hello
-world
-    ``
+        class P:
+            def __call__(self, *arg):   #让class像方法一样,可以调用
+                for k in arg:
+                    print k
+        p = P()
+        p("hello","world")
+        hello
+        world
 
 - **and和or的特殊性质**
 
@@ -241,32 +231,29 @@ world
         
     or:返回第一个真值,否则返回最后一个假值
         
-    ``
->>> 'a' and 'b'
-'b'
->>> '' and 'b'
-''
->>> 'a' and 'b' and 'c'
-'c'
->>> 'a' or 'b'
-'a'
->>> '' or 'b'
-'b'
->>> '' or [] or {}
-{}
-    ``
+        >>> 'a' and 'b'
+        'b'
+        >>> '' and 'b'
+        ''
+        >>> 'a' and 'b' and 'c'
+        'c'
+        >>> 'a' or 'b'
+        'a'
+        >>> '' or 'b'
+        'b'
+        >>> '' or [] or {}
+        {}
+
     and 和 or 的技巧:
     
     bool ? a : b 表达式
     
-    ``
->>> a = "first"
->>> b = "second"
->>> 1 and a or b 1
-'first'
->>> 0 and a or b 2
-'second'
-    ``
+        >>> a = "first"
+        >>> b = "second"
+        >>> 1 and a or b 1
+        'first'
+        >>> 0 and a or b 2
+        'second'
 
 - **python连接mysql**
     
@@ -274,19 +261,18 @@ world
     
     api: [http://mysql-python.sourceforge.net/MySQLdb-1.2.2/](http://mysql-python.sourceforge.net/MySQLdb-1.2.2/)
     
-    ``
-conn = MySQLdb.connect (host = "dbserver",
-                        user = "dbusername",
-                        passwd = "dbpassword",
-                        db = "db")
-cursor = conn.cursor()
-cursor.execute ("SELECT VERSION()")
-row = cursor.fetchone()
-print "server version:", row[0]
-cursor.close ()
-conn.close ()
-    ``
-    
-***
+        conn = MySQLdb.connect (host = "dbserver",
+                                user = "dbusername",
+                                passwd = "dbpassword",
+                                db = "db")
+        cursor = conn.cursor()
+        cursor.execute ("SELECT VERSION()")
+        row = cursor.fetchone()
+        print "server version:", row[0]
+        cursor.close ()
+        conn.close ()
+
+
+---
 END
     

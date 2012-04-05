@@ -1,9 +1,12 @@
-# Sublime Text 2 实用快捷键[Mac OS X]
+Sublime Text 2 实用快捷键[Mac OS X]
+==================================
 
 **注意：修饰键（如⌘）后跟多个按键的情况表示在按住修饰键的情况下依次按下相应键。**
 
 
-### 打开/前往
+打开/前往
+--------
+
 <table>
 	<tr><td>⌘T</td><td>前往文件</td></tr>
 	<tr><td>⌘⌃P</td><td>前往项目</td></tr>
@@ -15,7 +18,8 @@
 	<tr><td>⌘⇧N </td><td>新建窗口</td></tr>
 </table>
 
-### 编辑
+编辑
+----
 
 <table>
 <thead>
@@ -108,7 +112,10 @@
 </tbody>
 </table>
 
-### XML/HTML
+
+XML/HTML
+---------
+
 <table>
 <thead>
 <tr>
@@ -128,7 +135,9 @@
 </tbody>
 </table>
 
-### 查找/替换
+查找/替换
+--------
+
 <table>
 <thead>
 <tr>
@@ -161,7 +170,9 @@
 </table>
 
 
-### 拆分窗口/标签页
+拆分窗口/标签页
+-------------
+
 <table>
 <thead>
 <tr>
@@ -197,7 +208,9 @@
 </tbody>
 </table>
 
-### 书签
+书签
+----
+
 <table>
 <thead>
 <tr>
@@ -225,7 +238,9 @@
 </tbody>
 </table>
 
-### 标记
+标记
+----
+
 <table>
 <thead>
 <tr>
@@ -253,5 +268,8 @@
 </tbody>
 </table>
 
------------------------------
+
 From : Lucifr - [http://lucifr.com/139235/sublime-text-2-useful-shortcuts/](http://lucifr.com/139235/sublime-text-2-useful-shortcuts/)
+
+------
+END
