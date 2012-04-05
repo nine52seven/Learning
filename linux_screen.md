@@ -28,7 +28,7 @@ about screen
     screen -d
 
 
-快捷键: 其中的 `Ctrl+a c` ,表示先按 `ctrl+a , 松开再按 `c`
+快捷键: 其中的 `Ctrl+a c` ,表示先按 `ctrl+a` , 松开再按 `c`
 
 <table>
 <tr><td><b>Key</b></td><td><b>Action</b></td><td><b>Notes</b></td></tr>
