@@ -14,8 +14,8 @@ GNU Screen是一个基于文本的全屏窗口管理器，一个Screen会话可�
 
 其中每个会话的都由其PID和名称来标识，可以通过指定PID或名称来恢复指定的Screen会话：
 
-    screen -r 14715
-    screen -r first
+    screen -r 1718
+    screen -r pts-0
 
 下面可以实现会话共享,意思就是在不同地方登陆,就像面对同一个显示器
 
@@ -24,6 +24,13 @@ GNU Screen是一个基于文本的全屏窗口管理器，一个Screen会话可�
 退出当前screen,而不是杀死:
 
     Ctrl+a d
+
+如果显示使用下面命令强制将这个会话从它所在的终端分离，转移到新的终端上来：
+
+    screen -d
+
+
+
 
 快捷键: `其中的Ctrl+a c,表示先按ctrl+a, 松开再按c`
 
