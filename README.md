@@ -17,5 +17,9 @@
 
 * [linuxTip](https://github.com/chaing/Learning/blob/master/linuxTip.md)
 
-----
+
+
+GOOD LUCK!
+----------
+
 [@nine52seven](https://twitter.com/nine52seven)

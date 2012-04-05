@@ -146,7 +146,7 @@ IPVS显示为No的话,需要安装 `ipvsadm` ,以及 `kernel-devel` :
     #make & make install
 
 
-拷贝keepalived的配置文件到/etc目录下:
+拷贝keepalived的配置文件到 `/etc` 目录下:
 
     # cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/rc.d/init.d/ 
     # cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig 
@@ -283,5 +283,5 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
 **注意** : 还要检查各机器的防火墙设置
     
 ---
-END, good luck!
+END, GOOD LUCK!
     

@@ -68,9 +68,9 @@ Next steps:
 
 Existing Git Repo?
 
-  $ cd existing_git_repo
-  $ git remote add origin git@github.com:chaing/myGit.git
-  $ git push origin master
+    $ cd existing_git_repo
+    $ git remote add origin git@github.com:chaing/myGit.git
+    $ git push origin master
 
 
 初始化一个本地库:
@@ -122,11 +122,12 @@ Existing Git Repo?
     $ git merge "Merge work in robin" HEAD branch-name
 
 
-*注意:* **git不能添加空目录到索引里**,可以在空目录下添加一个 `.gitignore` 的空文件,然后 `git add dir/.gitignore`
+**注意:** **git不能添加空目录到索引里**,可以在空目录下添加一个 `.gitignore` 的空文件,然后 `git add dir/.gitignore`
 
 使用下面的目录可以遍历添加:
 
     $ find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;
 
-----
-END
+
+END,GOOD LUCK!
+--------------
