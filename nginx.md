@@ -42,7 +42,7 @@ http {
     include       mime.types;
     default_type  text/plain;
 
-    sendfile        on;     #上传文件需要打开
+    sendfile        on;     #sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件
 
     keepalive_timeout  60;
 
@@ -110,6 +110,67 @@ RPAFsethostname On
 RPAFproxy_ips 192.168.0.1       #nginx ip,如果前端有多个,可以空格间隔
 RPAFheader X-Forwarded-For
 ```
+
+禁止图片外链:
+
+```ruby
+location ~* \.(gif|jpg|png|swf|flv) {
+    valid_referers none blocked *.xxx.com;
+    if ($invalid_referer) {
+        return 403;
+    }
+}
+```
+
+禁止爬虫:
+
+```ruby
+if ( $http_user_agent ~* "qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {
+        return 403;
+}
+```
+
+域名跳转,如果访问xxx.com自动跳转到www.xxx.com,或其他域名:
+
+```ruby
+if ($host = 'xxx.com') {
+    rewrite ^/(.*)$ http://www.xxx.com/$1 permanent;
+}
+```
+
+
+
+### 优化
+
+多核cpu,可以使用下面命令查看服务器cpu:
+
+```ruby
+$ cat /proc/cpuinfo | grep processor
+processor       : 0
+processor       : 1
+processor       : 2
+processor       : 3
+```
+
+nginx设置:
+
+```
+worker_processes 4;
+worker_cpu_affinity 0001 0010 0100 1000;
+```
+
+减小Nginx编译后的文件大小,在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字 节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如 下：
+
+在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行：
+
+```ruby
+# debug  
+CFLAGS=”$CFLAGS -g” 
+```
+注释掉或删掉这两行，即可取消debug模式。
+
+
+
 启动nginx:
 
 ```ruby
