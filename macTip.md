@@ -7,3 +7,5 @@ some tip about mac...
     sudo /Developer/Library/uninstall-devtools --mode=all
 
 
+END,GOOD LUCK!
+--------------

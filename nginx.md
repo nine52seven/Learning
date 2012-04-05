@@ -1,5 +1,5 @@
-some tip about nginx...
-=======================
+about nginx...
+==============
 
 > [Nginx ("engine x")](http://nginx.org) 是一个高性能的 HTTP 和 反向代理 服务器
 
@@ -123,7 +123,7 @@ nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所�
             return 403;
     }
 
-域名跳转,如果访问xxx.com自动跳转到www.xxx.com,或其他域名:
+域名跳转,如果访问 `xxx.com` 自动跳转到 `www.xxx.com` ,或其他域名:
 
     if ($host = 'xxx.com') {
         rewrite ^/(.*)$ http://www.xxx.com/$1 permanent;
@@ -147,7 +147,7 @@ nginx设置:
 
 减小Nginx编译后的文件大小,在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百k，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
 
-在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行：
+在Nginx源码文件被解压后，找到源码目录下的 `auto/cc/gcc` 文件，在其中找到如下几行：
 
     # debug  
     CFLAGS=”$CFLAGS -g” 
@@ -168,8 +168,8 @@ nginx设置:
     /usr/local/nginx/sbin/nginx -s reload
 
 
----
-END
+END,GOOD LUCK!
+--------------
 
 
 

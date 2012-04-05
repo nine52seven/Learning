@@ -282,6 +282,6 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
 
 **注意** : 还要检查各机器的防火墙设置
     
----
-END, GOOD LUCK!
+END,GOOD LUCK!
+--------------
     

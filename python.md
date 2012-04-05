@@ -2,6 +2,8 @@ python 学习笔记
 ===============
 
 数据的结构
+---------
+
 - **列表 list**
   
     list是处理一组有序项目的数据结构,"[]"包围
@@ -34,7 +36,7 @@ python 学习笔记
     
     value: 可以不可变或可变的对象
     
-    d = {key1 : value1, key2 : value2 }
+        d = {key1 : value1, key2 : value2 }
     
 
 - **序列**
@@ -47,7 +49,7 @@ python 学习笔记
 
 - **self**
   
-    class中的function必须带有self参数,为第一个参数,python中的self等同于java/php中的this
+    class中的function必须带有`self`参数,为第一个参数,python中的`self`等同于`java/php`中的`this`
     
 
         class Person:
@@ -171,7 +173,7 @@ python 学习笔记
 
 - **静态方法 static**
     
-    利用 `staticmehod(function)` 的重定义实现，而非关键字
+    利用 `staticmethod(function)` 的重定义实现，而非关键字
         
         >>> class Clazz:
                 def methodA():     #不能有self
@@ -273,6 +275,6 @@ python 学习笔记
         conn.close ()
 
 
----
-END
+END,GOOD LUCK!
+--------------
     

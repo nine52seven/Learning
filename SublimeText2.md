@@ -271,5 +271,5 @@ XML/HTML
 
 From : Lucifr - [http://lucifr.com/139235/sublime-text-2-useful-shortcuts/](http://lucifr.com/139235/sublime-text-2-useful-shortcuts/)
 
-------
-END
+END,GOOD LUCK!
+--------------
