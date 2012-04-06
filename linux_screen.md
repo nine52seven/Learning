@@ -14,6 +14,9 @@ about screen
 
     screen -r 1718
     screen -r pts-0
+    ...
+    screen -S screen_name
+    screen -r screen_name
 
 下面可以实现会话共享,意思就是在不同地方登陆,就像面对同一个显示器
 
