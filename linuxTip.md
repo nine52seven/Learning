@@ -6,11 +6,11 @@ mysql
 
 - `ubuntu` 默认安装的`mysql` 连接用户信息在 `/etc/mysql/debian.cnf` 文件里,并且需要注释掉 `/etc/mysql/my.cnf`里的下面一行,才能允许其他主机连接:
 
-    # bind-address           = 127.0.0.1
+        # bind-address           = 127.0.0.1
 
 - 查看`mysql`使用的`my.cnf`
 
-    # mysqld --verbose --help | grep -A 1 'Default options'
+        # mysqld --verbose --help | grep -A 1 'Default options'
 
 - `ubuntu` 修改 `mysql` 的数据文件位置,默认安装在 `/var/lib/mysql/` 下面,如果想修改到别的目录,比如 `/data/mysql/`,重启mysql的时候有可能会报错启动不了,原因是因为ubuntu里的 `apparmor` 服务,详细说明请google之,解决方法如下:
 
