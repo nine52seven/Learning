@@ -21,49 +21,49 @@ mysql
     #include <tunables/global>
 
     /usr/sbin/mysqld {
-      #include <abstractions/base>
-      #include <abstractions/nameservice>
-      #include <abstractions/user-tmp>
-      #include <abstractions/mysql>
-      #include <abstractions/winbind>
+        #include <abstractions/base>
+        #include <abstractions/nameservice>
+        #include <abstractions/user-tmp>
+        #include <abstractions/mysql>
+        #include <abstractions/winbind>
 
-      capability dac_override,
-      capability sys_resource,
-      capability setgid,
-      capability setuid,
+        capability dac_override,
+        capability sys_resource,
+        capability setgid,
+        capability setuid,
 
-      network tcp,
+        network tcp,
 
-      /etc/hosts.allow r,
-      /etc/hosts.deny r,
+        /etc/hosts.allow r,
+        /etc/hosts.deny r,
 
-      /etc/mysql/*.pem r,
-      /etc/mysql/conf.d/ r,
-      /etc/mysql/conf.d/* r,
-      /etc/mysql/*.cnf r,
-      /usr/lib/mysql/plugin/ r,
-      /usr/lib/mysql/plugin/*.so* mr,
-      /usr/sbin/mysqld mr,
-      /usr/share/mysql/** r,
-      /var/log/mysql.log rw,
-      /var/log/mysql.err rw,
-      /var/lib/mysql/ r,
-      /var/lib/mysql/** rwk,
-      /var/log/mysql/ r,
-      /var/log/mysql/* rw,
-      /var/run/mysqld/mysqld.pid w,
-      /var/run/mysqld/mysqld.sock w,
-      /etc/my.cnf r,
-      /sys/devices/system/cpu/ r,
+        /etc/mysql/*.pem r,
+        /etc/mysql/conf.d/ r,
+        /etc/mysql/conf.d/* r,
+        /etc/mysql/*.cnf r,
+        /usr/lib/mysql/plugin/ r,
+        /usr/lib/mysql/plugin/*.so* mr,
+        /usr/sbin/mysqld mr,
+        /usr/share/mysql/** r,
+        /var/log/mysql.log rw,
+        /var/log/mysql.err rw,
+        /var/lib/mysql/ r,
+        /var/lib/mysql/** rwk,
+        /var/log/mysql/ r,
+        /var/log/mysql/* rw,
+        /var/run/mysqld/mysqld.pid w,
+        /var/run/mysqld/mysqld.sock w,
+        /etc/my.cnf r,
+        /sys/devices/system/cpu/ r,
 
-      #添加如下:
-      /data/mysql/ r,
-      /data/mysql/** rwk,
-      /data/mysql/ r,
-      /data/mysql/* rw,
+        #添加如下:
+        /data/mysql/ r,
+        /data/mysql/** rwk,
+        /data/mysql/ r,
+        /data/mysql/* rw,
 
-      # Site-specific additions and overrides. See local/README for details.
-      #include <local/usr.sbin.mysqld>
+        # Site-specific additions and overrides. See local/README for details.
+        #include <local/usr.sbin.mysqld>
     }
     ...
     # /etc/init.d/apparmor restart
@@ -76,7 +76,7 @@ mysql
     master  > SET GLOBAL rpl_semi_sync_master_enabled=1;
     slave-x > SET GLOBAL rpl_semi_sync_slave_enabled=1;
 
-如果是更新,需要先:
+  如果是更新,需要先:
 
     mysql> UNINSTALL PLUGIN rpl_semi_sync_master;
     
