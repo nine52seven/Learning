@@ -4,7 +4,7 @@ some tip about linux...
 mysql
 ------
 
-- `ubuntu` 默认安装的`mysql` 连接用户信息在 `/etc/mysql/debian.cnf' 文件里,并且需要注释掉 `/etc/mysql/my.cnf` 里的下面一行,才能允许其他主机连接:
+- `ubuntu` 默认安装的`mysql` 连接用户信息在 `/etc/mysql/debian.cnf` 文件里,并且需要注释掉 `/etc/mysql/my.cnf`里的下面一行,才能允许其他主机连接:
 
     # bind-address           = 127.0.0.1
 
@@ -80,7 +80,8 @@ mysql
 
     mysql> UNINSTALL PLUGIN rpl_semi_sync_master;
     
-- 查看网卡的速率
+- 查看网卡的速率:
+
     # ethtool eth0
     # mii-tool -v eth0
 
