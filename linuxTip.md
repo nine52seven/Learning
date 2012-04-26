@@ -68,7 +68,23 @@ mysql
     ...
     # /etc/init.d/apparmor restart
     # /etc/init.d/mysql start
+
+- 启动 `mysql 5.5` 的半同步
     
+    master  > INSTALL PLUGIN rpl_semi_sync_master soname 'semisync_master.so';
+    slave-x > INSTALL PLUGIN rpl_semi_sync_slave SONAME 'semisync_slave.so’;
+    master  > SET GLOBAL rpl_semi_sync_master_enabled=1;
+    slave-x > SET GLOBAL rpl_semi_sync_slave_enabled=1;
+
+如果是更新,需要先:
+
+    mysql> UNINSTALL PLUGIN rpl_semi_sync_master;
+    
+- 查看网卡的速率
+    # ethtool eth0
+    # mii-tool -v eth0
+
+
 
 END,GOOD LUCK!
 --------------
