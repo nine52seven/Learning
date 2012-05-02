@@ -85,6 +85,26 @@ mysql
         # ethtool eth0
         # mii-tool -v eth0
 
+- centos 设置开机自动启动服务
+
+        # chkconfig --list
+        # chkconfig --list mysqld
+        # chkconfig --add mysqld
+        # chkconfig --del mysqld
+        # chkconfig mysqld on
+        # chkconfig mysqld off
+
+- ufw 防火墙简单设置
+        # ufw enable            //启用ufw
+        # ufw disable           //仅用ufw
+        # ufw default deny      //全部禁止
+        # ufw allow from 192.168.1.1            //允许此IP访问所有的本机端口
+        # ufw delete allow from 192.168.1.1         //删除上一条规则
+        # ufw allow 80          //允许外部访问80端口
+        # ufw delete allow 80   //禁止外部访问80 端口
+        # ufw allow smtp    //允许smtp服务
+        # ufw delete allow smtp     //禁止smtp服务
+
 
 
 END,GOOD LUCK!
