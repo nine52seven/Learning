@@ -95,6 +95,7 @@ mysql
         # chkconfig mysqld off
 
 - ufw 防火墙简单设置
+
         # ufw enable            //启用ufw
         # ufw disable           //仅用ufw
         # ufw default deny      //全部禁止
@@ -130,13 +131,15 @@ mysql
     - 度量衡表达方式(LC_MEASUREMENT)
     - 默认纸张尺寸大小(LC_PAPER)
     - 对locale自身包含信息的概述(LC_IDENTIFICATION)。
-    
+        
 
+    安装
+    
         $ sudo cat /usr/share/i18n/SUPPORTED | grep 'en_US' > /var/lib/locales/supported.d/local
         $ sudo cat /usr/share/i18n/SUPPORTED | grep 'zh_CN' >> /var/lib/locales/supported.d/local
         $ sudo locale-gen --purge
 
-    安装
+    或者
 
         $ cd /usr/share/locales
         $ sudo ./install-language-pack en_US
