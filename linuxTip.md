@@ -212,7 +212,8 @@ some tip about linux...
 
     $ sudo sysctl -p
 
-禁用完成,可以用上面来查看是否禁用.
+禁用完成,可以用上面来查看是否禁用.还有一种修改grub的方法,可以上网查找.
+
 
 
 END,GOOD LUCK!
