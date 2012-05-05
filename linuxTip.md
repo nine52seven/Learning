@@ -1,8 +1,6 @@
 some tip about linux...
 =======================
 
-mysql
-------
 
 - `ubuntu` 默认安装的`mysql` 连接用户信息在 `/etc/mysql/debian.cnf` 文件里,并且需要注释掉 `/etc/mysql/my.cnf`里的下面一行,才能允许其他主机连接:
 
@@ -154,6 +152,67 @@ mysql
         $ export LC_ALL='en_US.UTF-8'
 
     参考: http://wiki.ubuntu.org.cn/Locale
+
+- ubuntu 升级
+
+先升级下各软件
+    
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
+
+之后备份各种配置文件,然后运行
+
+    $ sudo apt-get install update-manager-core
+    $ sudo do-release-upgrade
+
+完成以后重启,运行下面命令,就可以看到新版本的信息了
+
+    $ lsb_release -a 
+
+
+- ubuntu 安装deb包
+
+    - dpkg -i package.deb   安装包
+    - dpkg -r package   删除包
+    - dpkg -P package   删除包（包括配置文件）
+    - dpkg -L package   列出与该包关联的文件
+    - dpkg -l package   显示该包的版本
+    - dpkg –unpack package.deb    解开 deb 包的内容
+    - dpkg -S keyword   搜索所属的包内容
+    - dpkg -l   列出当前已安装的包
+    - dpkg -c package   列出 deb 包的内容
+
+- ubuntu 禁用ipv6
+
+适用9.04以后版本,查看是否启用
+
+    $ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+显示
+    
+    - 0 --> Enabled
+    - 1 --> Disabled
+
+或者
+
+    $ ip a | grep inet6
+
+如果没有显示任何内容,说明已经禁用. 下面是禁用方法
+
+    $ sudo vi /etc/sysctl.conf
+
+添加下面内容
+
+    # IPv6
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable_ipv6 = 1
+
+保存退出,然后
+
+    $ sudo sysctl -p
+
+禁用完成,可以用上面来查看是否禁用.
 
 
 END,GOOD LUCK!
