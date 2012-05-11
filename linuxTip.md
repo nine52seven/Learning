@@ -239,12 +239,11 @@ some tip about linux...
 
     binlog的记录格式有下面三种
 
-        - STATEMENT
-        基于SQL语句的复制(statement-based replication, SBR)
-        - ROW
-        基于行的复制(row-based replication, RBR)
-        - MIXED
-        混合模式复制(mixed-based replication, MBR)
+    - STATEMENT 基于SQL语句的复制(statement-based replication, SBR)
+
+    - ROW 基于行的复制(row-based replication, RBR)
+
+    - MIXED 混合模式复制(mixed-based replication, MBR)
 
     也可以在运行时动态修改binlog的格式。例如
 
