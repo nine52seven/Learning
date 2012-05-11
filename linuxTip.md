@@ -155,19 +155,19 @@ some tip about linux...
 
 - ubuntu 升级
 
-先升级下各软件
-    
-    $ sudo apt-get update
-    $ sudo apt-get upgrade
+    先升级下各软件
+        
+        $ sudo apt-get update
+        $ sudo apt-get upgrade
 
-之后备份各种配置文件,然后运行
+    之后备份各种配置文件,然后运行
 
-    $ sudo apt-get install update-manager-core
-    $ sudo do-release-upgrade
+        $ sudo apt-get install update-manager-core
+        $ sudo do-release-upgrade
 
-完成以后重启,运行下面命令,就可以看到新版本的信息了
+    完成以后重启,运行下面命令,就可以看到新版本的信息了
 
-    $ lsb_release -a 
+        $ lsb_release -a 
 
 
 - ubuntu 安装deb包
@@ -184,76 +184,77 @@ some tip about linux...
 
 - ubuntu 禁用ipv6
 
-适用9.04以后版本,查看是否启用
+    适用9.04以后版本,查看是否启用
 
-    $ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+        $ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
-显示
-    
-    - 0 --> Enabled
-    - 1 --> Disabled
+    显示
+        
+        - 0 --> Enabled
+        - 1 --> Disabled
 
-或者
+    或者
 
-    $ ip a | grep inet6
+        $ ip a | grep inet6
 
-如果没有显示任何内容,说明已经禁用. 下面是禁用方法
+    如果没有显示任何内容,说明已经禁用. 下面是禁用方法
 
-    $ sudo vi /etc/sysctl.conf
+        $ sudo vi /etc/sysctl.conf
 
-添加下面内容
+    添加下面内容
 
-    # IPv6
-    net.ipv6.conf.all.disable_ipv6 = 1
-    net.ipv6.conf.default.disable_ipv6 = 1
-    net.ipv6.conf.lo.disable_ipv6 = 1
+        # IPv6
+        net.ipv6.conf.all.disable_ipv6 = 1
+        net.ipv6.conf.default.disable_ipv6 = 1
+        net.ipv6.conf.lo.disable_ipv6 = 1
 
-保存退出,然后
+    保存退出,然后
 
-    $ sudo sysctl -p
+        $ sudo sysctl -p
 
-禁用完成,可以用上面来查看是否禁用.还有一种修改grub的方法,可以上网查找.
+    禁用完成,可以用上面来查看是否禁用.还有一种修改grub的方法,可以上网查找.
 
 
 - 关闭selinux
 
-    $ sudo setenforece 0    //关闭selinux
-    $ sudo setenforece 1    //启用selinux
+        $ sudo setenforece 0    //关闭selinux
+        $ sudo setenforece 1    //启用selinux
 
-或者修改配置
+    或者修改配置
 
-    $ sudo vi /etc/selinux/config
+        $ sudo vi /etc/selinux/config
 
-修改为 `SELINUX=disabled`
+    修改为 `SELINUX=disabled`
 
 
 - Mysql 5.5
 
-日志里显示
+    日志里显示
 
-    120510  1:51:36 [Warning] Unsafe statement written to the binary log using statement format since BINLOG_FORMAT = STATEMENT. The statement is unsafe because it uses a LIMIT clause. This is unsafe because the set of rows included cannot be predicted. Statement: delete from tablename where id='1' limit 1
+        120510  1:51:36 [Warning] Unsafe statement written to the binary log using statement format since BINLOG_FORMAT = STATEMENT. The statement is unsafe because it uses a LIMIT clause. This is unsafe because the set of rows included cannot be predicted. Statement: delete from tablename where id='1' limit 1
 
-解决方法,修改 `/etc/my.cnf` 中binlog的格式
+    解决方法,修改 `/etc/my.cnf` 中binlog的格式
 
-    binlog_format=MIXED
+        binlog_format=MIXED
 
-binlog的记录格式有下面三种
+    binlog的记录格式有下面三种
 
-    - STATEMENT
-    基于SQL语句的复制(statement-based replication, SBR)
-    - ROW
-    基于行的复制(row-based replication, RBR)
-    - MIXED
-    混合模式复制(mixed-based replication, MBR)
+        - STATEMENT
+        基于SQL语句的复制(statement-based replication, SBR)
+        - ROW
+        基于行的复制(row-based replication, RBR)
+        - MIXED
+        混合模式复制(mixed-based replication, MBR)
 
-也可以在运行时动态修改binlog的格式。例如
+    也可以在运行时动态修改binlog的格式。例如
 
-    mysql> SET SESSION binlog_format = 'STATEMENT';
-    mysql> SET SESSION binlog_format = 'ROW';
-    mysql> SET SESSION binlog_format = 'MIXED';
-    mysql> SET GLOBAL binlog_format = 'STATEMENT';
-    mysql> SET GLOBAL binlog_format = 'ROW';
-    mysql> SET GLOBAL binlog_format = 'MIXED';
+        mysql> SET SESSION binlog_format = 'STATEMENT';
+        mysql> SET SESSION binlog_format = 'ROW';
+        mysql> SET SESSION binlog_format = 'MIXED';
+        mysql> SET GLOBAL binlog_format = 'STATEMENT';
+        mysql> SET GLOBAL binlog_format = 'ROW';
+        mysql> SET GLOBAL binlog_format = 'MIXED';
+
 
 
 
