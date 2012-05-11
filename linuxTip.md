@@ -215,6 +215,47 @@ some tip about linux...
 禁用完成,可以用上面来查看是否禁用.还有一种修改grub的方法,可以上网查找.
 
 
+- 关闭selinux
+
+    $ sudo setenforece 0    //关闭selinux
+    $ sudo setenforece 1    //启用selinux
+
+或者修改配置
+
+    $ sudo vi /etc/selinux/config
+
+修改为 `SELINUX=disabled`
+
+
+- Mysql 5.5
+
+日志里显示
+
+    120510  1:51:36 [Warning] Unsafe statement written to the binary log using statement format since BINLOG_FORMAT = STATEMENT. The statement is unsafe because it uses a LIMIT clause. This is unsafe because the set of rows included cannot be predicted. Statement: delete from tablename where id='1' limit 1
+
+解决方法,修改 `/etc/my.cnf` 中binlog的格式
+
+    binlog_format=MIXED
+
+binlog的记录格式有下面三种
+
+    - STATEMENT
+    基于SQL语句的复制(statement-based replication, SBR)
+    - ROW
+    基于行的复制(row-based replication, RBR)
+    - MIXED
+    混合模式复制(mixed-based replication, MBR)
+
+也可以在运行时动态修改binlog的格式。例如
+
+    mysql> SET SESSION binlog_format = 'STATEMENT';
+    mysql> SET SESSION binlog_format = 'ROW';
+    mysql> SET SESSION binlog_format = 'MIXED';
+    mysql> SET GLOBAL binlog_format = 'STATEMENT';
+    mysql> SET GLOBAL binlog_format = 'ROW';
+    mysql> SET GLOBAL binlog_format = 'MIXED';
+
+
 
 END,GOOD LUCK!
 --------------
