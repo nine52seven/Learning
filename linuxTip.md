@@ -254,6 +254,16 @@ some tip about linux...
         mysql> SET GLOBAL binlog_format = 'ROW';
         mysql> SET GLOBAL binlog_format = 'MIXED';
 
+- 添加sudo用户
+    修改文件 `/etc/sudoers`
+
+        # chmod u+w /etc/sudoers      #修改文件可写
+        # vi /etc/sudoers
+
+    在 `root    ALL=(ALL:ALL) ALL` 行下面添加一行
+
+        newuser    ALL=(ALL:ALL) ALL    #newuser为要添加sudo权限的用户
+        # chmod u-w /etc/sudoers 
 
 
 
