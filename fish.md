@@ -19,31 +19,40 @@
             <td>照明</td><td>酷鱼36w</td><td></td><td>110</td>
         </tr>
         <tr>
-            <td>加热棒</td><td>50w</td><td></td><td></td>
+            <td>加热棒</td><td>50w</td><td></td>30<td></td>
         </tr>
         <tr>
-            <td>温度计</td><td></td><td></td><td></td>
+            <td>温度计</td><td></td><td></td><td>5</td>
         </tr>
         <tr>
             <td>水草泥</td><td>尼特利 or ada</td><td></td><td>150</td>
         </tr>
         <tr>
-            <td>硝化细菌</td><td>科迪</td><td></td><td>6元/支</td>
+            <td>硝化细菌</td><td>科迪</td><td></td><td>6元/支*2</td>
         </tr>
         <tr>
-            <td>沉木</td><td></td><td></td><td></td>
+            <td>沉木</td><td></td><td></td>50<td></td>
         </tr>
         <tr>
-            <td>石头</td><td></td><td></td><td></td>
+            <td>石头</td><td></td><td></td>5<td></td>
         </tr>
         <tr>
-            <td>镊子</td><td></td><td></td><td></td>
+            <td>镊子</td><td></td><td></td>2<td></td>
         </tr>
         <tr>
-            <td>定时器</td><td></td><td></td><td></td>
+            <td>定时器</td><td></td><td></td>20<td></td>
         </tr>
         <tr>
-            <td>水草类</td><td></td><td>三角莫斯,迷你矮,绿宫廷,牛毛</td><td></td>
+            <td>气泵</td><td></td><td></td>12<td></td>
+        </tr>
+        <tr>
+            <td>排水管</td><td></td><td></td>5<td></td>
+        </tr>
+        <tr>
+            <td>水草类</td><td></td><td>三角莫斯,迷你矮,绿宫廷,牛毛</td>25+15+10+10<td></td>
+        </tr>
+        <tr>
+            <td>液肥</td><td>德比</td><td></td>35<td></td>
         </tr>
     </table>
 
