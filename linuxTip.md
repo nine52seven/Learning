@@ -255,6 +255,7 @@ some tip about linux...
         mysql> SET GLOBAL binlog_format = 'MIXED';
 
 - 添加sudo用户
+
     修改文件 `/etc/sudoers`
 
         # chmod u+w /etc/sudoers      #修改文件可写
@@ -264,6 +265,13 @@ some tip about linux...
 
         newuser    ALL=(ALL:ALL) ALL    #newuser为要添加sudo权限的用户
         # chmod u-w /etc/sudoers 
+
+- ubuntu做网关,ufw需要打开转发功能
+    
+    # echo 1 > /proc/sys/net/ipv4/ip_forward
+    # vi /etc/default/ufw
+
+    修改 DEFAULT_FORWARD_POLICY="ACCEPT"
 
 
 
