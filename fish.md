@@ -64,10 +64,10 @@
             <td>气管,吸盘</td><td>6mm</td><td>网购</td><td>2012.05.27</td><td>11</td>
         </tr>
         <tr>
-            <td>灯鱼饲料</td><td>6mm</td><td>网购</td><td>2012.06.02</td><td>11</td>
+            <td>灯鱼饲料</td><td>薄皮</td><td>团结湖</td><td>2012.06.02</td><td>30</td>
         </tr>
         <tr>
-            <td>气管,吸盘</td><td>6mm</td><td>网购</td><td>2012.06.02</td><td>11</td>
+            <td>杀菌水</td><td></td><td>团结湖</td><td>2012.06.02</td><td>20</td>
         </tr>
     </table>
 
