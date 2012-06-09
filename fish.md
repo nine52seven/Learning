@@ -31,19 +31,19 @@
             <td>硝化细菌</td><td>科迪</td><td></td><td>2012.05.19</td><td>6元/支*2</td>
         </tr>
         <tr>
-            <td>沉木</td><td></td><td></td><td>2012.05.26</td><td>50</td>
+            <td>沉木</td><td>杜鹃根</td><td></td><td>2012.05.26</td><td>50</td>
         </tr>
         <tr>
             <td>石头</td><td></td><td></td><td>2012.05.26</td><td>5</td>
         </tr>
         <tr>
-            <td>镊子</td><td></td><td></td><td>2012.05.26</td><td>2</td>
+            <td>镊子</td><td>楼下小店购买,生锈</td><td></td><td>2012.05.26</td><td>2</td>
         </tr>
         <tr>
-            <td>定时器</td><td></td><td></td><td>2012.05.26</td><td>20</td>
+            <td>定时器</td><td>科徳机械</td><td></td><td>2012.05.26</td><td>20</td>
         </tr>
         <tr>
-            <td>气泵</td><td></td><td></td><td>2012.05.26</td><td>2012.05.26</td></td>
+            <td>气泵</td><td></td><td></td><td>2012.05.26</td><td>11</td>
         </tr>
         <tr>
             <td>排水管</td><td></td><td></td><td>2012.05.26</td><td>5</td>
