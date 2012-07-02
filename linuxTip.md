@@ -268,24 +268,24 @@ some tip about linux...
 
 - ubuntu做网关,ufw需要打开转发功能
     
-    # echo 1 > /proc/sys/net/ipv4/ip_forward
-    # vi /etc/default/ufw
+        # echo 1 > /proc/sys/net/ipv4/ip_forward
+        # vi /etc/default/ufw
 
-    修改 DEFAULT_FORWARD_POLICY="ACCEPT"
+    修改 `DEFAULT_FORWARD_POLICY="ACCEPT"`
 
 - centos新建隧道,打开转发和NAT
     
-    # ip tunnel add tunnel0 mode ipip remote yyy.yyy.yyy.yyy local xxx.xxx.xxx.xxx
-    # ip link set tunnel0 up
-    # ip addr add 10.10.9.2/24 dev tunnel0
+        # ip tunnel add tunnel0 mode ipip remote yyy.yyy.yyy.yyy local xxx.xxx.xxx.xxx
+        # ip link set tunnel0 up
+        # ip addr add 10.10.9.2/24 dev tunnel0
 
-    # iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
-    # iptables --append FORWARD --in-interface eth1 -j ACCEPT
+        # iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
+        # iptables --append FORWARD --in-interface eth1 -j ACCEPT
 
-    # iptables -t nat -A POSTROUTING -s 10.10.9.0/24 -j MASQUERAD
+        # iptables -t nat -A POSTROUTING -s 10.10.9.0/24 -j MASQUERAD
 
-    # route
-    $远程ip   10.10.9.2       255.255.255.255 UGH   0      0        0 tunnel1
+        # route
+        $远程ip   10.10.9.2       255.255.255.255 UGH   0      0        0 tunnel1
 
     另外 ip_forward需要打开
 
