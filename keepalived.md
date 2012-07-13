@@ -223,6 +223,8 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
     #/etc/rc.d/init.d/mysql start
     #/etc/rc.d/init.d/keepalived start
 
+还要检查`iptables`,否则两机之间的心跳检测会有问题
+
 查看日志:
 
     #tail -n 100 /var/log/messages

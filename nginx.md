@@ -21,6 +21,11 @@ about nginx...
                 --with-http_realip_module   \           #
                 --add-module=/root/nginx_module/nginx_upload_module-2.2.0   #第三方模块 上传处理
 
+如果编译过程缺少`pcre`,需要下载`pcre`源代码,网站: [www.pcre.org](http://www.pcre.org),解压既可,然后指定路径:
+
+    --with-pcre=path-of-pcre
+
+
 配置nginx
 ---------
 

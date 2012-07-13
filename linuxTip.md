@@ -164,6 +164,8 @@ some tip about linux...
 
         $ sudo apt-get install update-manager-core
         $ sudo do-release-upgrade
+        $ sudo apt-get autoremove
+        $ sudo apt-get autoclean
 
     完成以后重启,运行下面命令,就可以看到新版本的信息了
 
