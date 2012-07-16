@@ -14,6 +14,7 @@ eg:
     $ ssh-copy-id -i ~/.ssh/id_rsa.pub 'username@host'
 
 - 安装macports
+
 	下载: (http://www.macports.org)[http://www.macports.org/],需要先安装`xcode`,还有`xcode`里的`Command Line Tools`,因为需要编译软件,里面包含`make`等工具
 
 	安装完以后,需要在环境路径里添加上macports的执行路径
