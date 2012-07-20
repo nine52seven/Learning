@@ -291,6 +291,32 @@ some tip about linux...
 
     另外 ip_forward需要打开
 
+- 同步文件
+    
+    使用inotify+rsync从一个服务器实时同步到多个服务器上,下面是bash脚本,需要安装inotify-tools,rsync服务
+
+        #!/bin/sh 
+        srcdir="/var/html/"  #源目录
+        ipaddress="192.168.1.100 192.168.1.200"  #目标服务器,可以多个
+        dstdir="/var/html/"  #目标目录
+        noinclude="tmp"   #忽略目录,相对路径
+        if [ -n "$1" ]; then
+            for i in $ipaddress; 
+            do
+                rsync -aqztH --exclude=${noinclude} --delete --progress ${srcdir} root@${i}:${dstdir}
+            done
+            exit;
+        fi
+
+        /usr/bin/inotifywait -mrq --exclude=${noinclude} --timefm '%d/%m/%y-%H:%M' --format '%T %w%f' -e modify,delete,create,attrib ${srcdir} | while read file 
+        do 
+            for i in $ipaddress; do
+                rsync -aqztH --exclude=${noinclude} --delete --progress ${srcdir} root@${i}:${dstdir}
+            done    
+        done
+
+    此脚本是预先做了ssh密钥登陆设置,所以同步的时候不需要数据登陆密码
+
 
 END,GOOD LUCK!
 --------------
