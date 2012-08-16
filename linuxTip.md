@@ -351,7 +351,17 @@ some tip about linux...
         1024
         # echo "ulimit -SHn 65536" >> /etc/profile
 
-- 安装
+- 关于mysql的bin-log日志
+    删除
+
+        mysql> PURGE MASTER LOGS TO ‘mysql-bin.010′;
+        mysql> PURGE MASTER LOGS BEFORE ‘2008-12-19 21:00:00′;
+        mysql> PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 28 DAY);
+
+    修改`my.cnf`,添加下面一行
+
+        expire_logs_days = 30
+
 
 END,GOOD LUCK!
 --------------

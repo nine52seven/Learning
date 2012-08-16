@@ -101,7 +101,8 @@ Existing Git Repo?
   
 删除分支:
 
-    $ git branch -D branch-name
+    $ git branch -D branch-name     #强制删除
+    $ git branch -d branch-name     #如果没有合并到主分支,则删除不了
 
   
 查看分支:
@@ -120,6 +121,15 @@ Existing Git Repo?
 
     $ git checkout master
     $ git merge "Merge work in robin" HEAD branch-name
+    $ git merge branch-name
+
+拉取远程上的变化:
+    
+    $ git pull
+
+提交到远程服务器上:
+
+    $ git push
 
 
 **注意:** **git不能添加空目录到索引里**,可以在空目录下添加一个 `.gitignore` 的空文件,然后 `git add dir/.gitignore`
@@ -127,6 +137,72 @@ Existing Git Repo?
 使用下面的目录可以遍历添加:
 
     $ find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;
+
+新手开始使用的问题
+---------------
+
+- 初始化一个库
+
+        $ mkdir myrepo
+        $ cd myrepo
+        $ git init
+
+- 添加文件到库中
+
+        $ touch readme
+        $ git add readme
+
+- 提交代码
+    
+    提交到本地库
+
+        $ git commit -am 'add readme'
+
+    提交到远程git服务器
+        $ git remote add origin <server>
+        $ git push origin master
+
+- 从git服务器拉取最新的代码
+
+        $ git pull
+
+    相当于
+
+        $ git fetch
+        $ git merge
+
+- 建立分支,切换分支,合并分支,删除分支
+
+        $ git branch dev
+        $ git checkout dev
+        Switched to branch 'dev'
+        $ git merge dev     #当前分支是master
+        ...
+        $ git branch -d dev
+        Deleted branch dev (was 4541233).
+        $ git push origin :dev       # 删除远端分支
+
+    查看远程分支
+
+        $ git branch -r
+
+
+- 回溯到前一版本
+        
+        $ git revert HEAD
+
+- 查看提交日志
+        
+        $ git log # 查看提交信息
+        $ git log --pretty=oneline  # 以整洁的单行形式显示提交信息
+        $ git log --stat            # 查看提交信息及更新的文件
+
+- 其他
+    
+    设置自己的名称和邮箱
+
+        $ git config --global user.name "Your name"
+        $ git config --global user.email “Your email"
 
 
 END,GOOD LUCK!
