@@ -199,10 +199,16 @@ Existing Git Repo?
 
 - 其他
     
-    设置自己的名称和邮箱
+    设置自己的名称和邮箱,全局
 
         $ git config --global user.name "Your name"
         $ git config --global user.email “Your email"
+
+    本地库
+
+        $ git config --local user.name "Your name"
+        $ git config --local user.email “Your email"
+
 
 
 END,GOOD LUCK!
