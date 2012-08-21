@@ -4,7 +4,9 @@ about Larbin...
 
 - 配置
     
+    主要配置文件: `larbin.conf` 和 `option.h`(修改完需要重新编译)
     
+
 - 提高特定网站的爬行速度
 
     - 将larbin.conf里面的waitDuration设置为1
