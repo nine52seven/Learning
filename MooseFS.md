@@ -61,6 +61,28 @@ Mfsmaster.cfg 配置文件包含主控服务器 master 相关的设置，mfsexpo
     
     # /usr/local/mfs-1.6.25/sbin/mfschunkserver start
 
+web监控程序启动,通过 `http://10.10.100:9425` 查看
+
+    # /usr/local/mfs-1.6.25/sbin/mfscgiserv start
+
+客户端挂载
+    
+    # /usr/local/mfs-1.6.25/bin/mfsmount /mnt/mfs -H 10.10.1.100
+
+设置副本份数
+
+    # /usr/local/mfs-1.6.25/bin/mfssetgoal -r 3 /mnt/mfs
+
+    # /usr/local/mfs-1.6.25/bin/mfsgetgoal -r /mnt/mfs
+
+恢复meta
+
+    # /usr/local/mfs-1.6.25/sbin/mfsmetarestore -a
+
+开启日志服务器
+
+    # /usr/local/mfs/sbin/mfsmetalogger start
+    # /usr/local/mfs/sbin/mfsmetalogger stop
 
 
 END,GOOD LUCK!
