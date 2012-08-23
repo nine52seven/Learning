@@ -121,7 +121,11 @@ nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所�
         }
     }
 
-
+设置过期时间:
+    location ~ \.(gif|jpg|jpeg|png|ico|css|js|txt)$ {
+        expires 24h;
+    }
+    
 禁止爬虫:
 
     if ( $http_user_agent ~* "qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {
