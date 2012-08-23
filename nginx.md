@@ -112,7 +112,7 @@ nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所�
     RPAFproxy_ips 192.168.0.1       #nginx ip,如果前端有多个,可以空格间隔
     RPAFheader X-Forwarded-For
 
-禁止图片外链:
+禁止图片外链,`none`表示直接访问的,`blocked`表示被防火墙修改过的:
 
     location ~* \.(gif|jpg|png|swf|flv) {
         valid_referers none blocked *.xxx.com;
