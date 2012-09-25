@@ -124,7 +124,7 @@ nginx做反向代理的时候,后端的apache获取的客户端ip都是nginx所�
 设置过期时间:
 
     location ~ \.(gif|jpg|jpeg|png|ico|css|js|txt)$ {
-        expires 24h;
+        
     }
     
 禁止爬虫:
