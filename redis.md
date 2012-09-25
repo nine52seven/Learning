@@ -28,8 +28,8 @@ about Redis...
 
 
 Link: 
-    - [redis commands](http://redis.io/commands) 
-    - [十五分钟介绍 Redis数据结构](http://blog.nosqlfan.com/html/3202.html)
+- [redis commands](http://redis.io/commands) 
+- [十五分钟介绍 Redis数据结构](http://blog.nosqlfan.com/html/3202.html)
 
 END,GOOD LUCK!
 --------------
