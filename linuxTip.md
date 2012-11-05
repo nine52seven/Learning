@@ -365,8 +365,8 @@ some tip about linux...
 
 - mail发送邮件
 
-    # /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME < content.txt
-    # echo "mail content" | /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME 
+        # /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME < content.txt
+        # echo "mail content" | /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME 
 
 - apache优化
 
@@ -428,16 +428,16 @@ some tip about linux...
     The default level is CoreFilters. The core set of filters is set to:
 
         add_head
-       combine_css
-       convert_meta_tags
-       extend_cache
-       inline_css
-       inline_import_to_link
-       inline_javascript
-       rewrite_css
-       rewrite_images
-       rewrite_javascript
-       rewrite_style_attributes_with_url
+        combine_css
+        convert_meta_tags
+        extend_cache
+        inline_css
+        inline_import_to_link
+        inline_javascript
+        rewrite_css
+        rewrite_images
+        rewrite_javascript
+        rewrite_style_attributes_with_url
 
     启用或者禁止模块
 
@@ -446,7 +446,7 @@ some tip about linux...
 
 - 添加sodu 权限
     
-    # sudo adduser 用户名 admin
+        # sudo adduser 用户名 admin
 
 
 END,GOOD LUCK!
