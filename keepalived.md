@@ -184,7 +184,8 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
             auth_pass 4321
         }
         virtual_ipaddress { 
-            192.168.1.200       #虚拟ip
+            192.168.1.200       #虚拟ip,可以有多个
+            192.168.1.300       #虚拟ip2
         }
     }
 
@@ -194,6 +195,7 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
         lb_kind DR
         persistence_timeout 60      # (同一IP的连接60秒内被分配到同一台realserver, 此例用不到)
         protocol TCP
+        sorry_server 127.0.0.1 80    #realserver全down则转发到这里
         real_server `192.168.1.201` 3306 {       # 本机ip
             weight 3
             notify_down /usr/local/mysql/bin/mysql.sh   # 检测到服务停止时触发的脚本
@@ -271,6 +273,14 @@ keepalived启动的时候会查找 `/etc/keepalived/keepalived.conf` , 配置样
         link/ether 00:13:72:fb:da:91 brd ff:ff:ff:ff:ff:ff
     4: sit0: <NOARP> mtu 1480 qdisc noop 
         link/sit 0.0.0.0 brd 0.0.0.0
+
+keepalived 主备iptables设置
+-------------------------
+
+需要在iptables里添加下面两行
+
+    -A   INPUT   -d   224.0.0.0/8   -j   ACCEPT
+    -A   INPUT    -p   vrrp   -j   ACCEPT
 
 
 测试

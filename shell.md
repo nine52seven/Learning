@@ -9,6 +9,10 @@ eg
         # echo -n 123 | md5sum | awk '{print $1}'
         # printf 123 | md5sum | awk '{print $1}'
 
+    - 截取字符串
+
+        # str1=${string:0:3}
+
     - 获取日期
 
         t=`date +%Y%m%d -d " -15 day"`
@@ -40,6 +44,13 @@ eg
 
         cksum file | awk '{print $1}'
 
-    - 
+    - 比较
+
+        -eq 等于 
+        -ne 不等于 
+        -gt 大于 
+        -ge 大于等于 
+        -lt 小于 
+        -le 小于等于 
 
 

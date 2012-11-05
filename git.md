@@ -159,6 +159,7 @@ Existing Git Repo?
         $ git commit -am 'add readme'
 
     提交到远程git服务器
+    
         $ git remote add origin <server>
         $ git push origin master
 

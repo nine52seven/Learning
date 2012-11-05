@@ -352,6 +352,7 @@ some tip about linux...
         # echo "ulimit -SHn 65536" >> /etc/profile
 
 - 关于mysql的bin-log日志
+
     删除
 
         mysql> PURGE MASTER LOGS TO ‘mysql-bin.010′;
@@ -361,6 +362,91 @@ some tip about linux...
     修改`my.cnf`,添加下面一行
 
         expire_logs_days = 30
+
+- mail发送邮件
+
+    # /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME < content.txt
+    # echo "mail content" | /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME 
+
+- apache优化
+
+    - HostnameLookups设置为off
+        
+        HostnameLookups Off
+
+    - 为Directory加上FollowSymLinks
+        
+        Options FollowSymLinks
+
+    - 将AllowOverride设置为None
+
+        -AllowOverride None
+
+    - MaxRequestsPerChild设置为非0以防止内存泄漏
+    - KeepAlive与KeepAliveTimeOut
+
+- pagespeed模块
+
+    [https://developers.google.com/speed/docs/mod_pagespeed/](https://developers.google.com/speed/docs/mod_pagespeed/)
+
+    安装
+
+        # wget https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-beta_current_amd64.deb
+        # dpkg -i mod-pagespeed-*.deb
+        # apt-get -f install
+
+    配置
+
+        /etc/apache2/mods-available/pagespeed.conf
+        ModPagespeed on
+
+        AddOutputFilterByType MOD_PAGESPEED_OUTPUT_FILTER text/html
+        ModPagespeedEnableFilters lazyload_images
+        ModPagespeedFetchWithGzip on
+
+        # 内嵌大块的Javascript和css可以移动到外部文件，这样它们就可以被缓存在浏览器中，即使HTML是不缓存的。
+        ModPagespeedEnableFilters outline_css,outline_javascript
+        # 将css元素移动到头信息中。
+        ModPagespeedEnableFilters move_css_to_head
+        # 将多个css元素合并成一个。
+        ModPagespeedEnableFilters combine_css
+        # 重写Javscript和CSS文件，删除多余的空格和注释。
+        ModPagespeedEnableFilters rewrite_css,rewrite_javascript
+        # 将CSS和JS小文件，内嵌到HTML文档中。
+        ModPagespeedEnableFilters inline_css,inline_javascript
+        # 优化图片重新编码成较小的字节大小，删除并不显示的多余像素并内嵌小图片。
+        ModPagespeedEnableFilters rewrite_images
+        # 增加宽/高属性来标记它们不存在。
+        ModPagespeedEnableFilters insert_img_dimensions
+        # 默认是关闭的。删除HTML文件中的注释。以免破坏Javascript延时执行。
+        ModPagespeedEnableFilters remove_comments
+        # 查找出缓存不超过一个月的所有图片，css和javascript，并延长缓存至它们生命周期。这个是安全的行为，因为增加了内容哈希URL，因此如果内容改变URL也将改变，并且可以获得正确的缓存。
+        ModPagespeedEnableFilters extend_cache
+        # 删除HTML属性并不需要的引号。
+        ModPagespeedEnableFilters remove_quotes
+
+    The default level is CoreFilters. The core set of filters is set to:
+
+        add_head
+       combine_css
+       convert_meta_tags
+       extend_cache
+       inline_css
+       inline_import_to_link
+       inline_javascript
+       rewrite_css
+       rewrite_images
+       rewrite_javascript
+       rewrite_style_attributes_with_url
+
+    启用或者禁止模块
+
+        ModPagespeedDisableFilters rewrite_images,combine_css
+        ModPagespeedEnableFilters rewrite_css,rewrite_javascript
+
+- 添加sodu 权限
+    
+    # sudo adduser 用户名 admin
 
 
 END,GOOD LUCK!
