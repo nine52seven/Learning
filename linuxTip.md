@@ -443,6 +443,15 @@ some tip about linux...
 
         ModPagespeedDisableFilters rewrite_images,combine_css
         ModPagespeedEnableFilters rewrite_css,rewrite_javascript
+        ModPagespeedDisableFilters lazyload_images
+
+    根据浏览器类型添加模块
+
+        SetEnvIf User-Agent "MSIE [5-8].0" mps_core_only
+        RequestHeader set ModPagespeedFilters core env=mps_core_only
+
+        SetEnvIf User-Agent "MSIE [5-8].0" turn_off_mps
+        RequestHeader set ModPagespeed off env=turn_off_mps
 
 - 添加sodu 权限
     

@@ -26,7 +26,6 @@ about Redis...
     "bar"
 
 
-
 Link:
 ----
 - [redis commands](http://redis.io/commands) 
