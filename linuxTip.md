@@ -387,7 +387,7 @@ some tip about linux...
 
 - pagespeed模块
 
-    [https://developers.google.com/speed/docs/mod_pagespeed/](https://developers.google.com/speed/docs/mod_pagespeed/)
+    [https://developers.google.com/speed/pagespeed/mod/](https://developers.google.com/speed/pagespeed/mod)
 
     安装
 
