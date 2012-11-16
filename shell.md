@@ -1,7 +1,6 @@
 about Bash...
 ==============
 
-eg
 ---
 
 - 得到字符串md5
@@ -12,6 +11,7 @@ eg
 - 截取字符串
 
         # str1=${string:0:3}
+        # echo 'file.jpg' | cut -d . -f 1   // -> file
 
 - 获取日期
 
