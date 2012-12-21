@@ -69,5 +69,23 @@ about Bash...
 
         # lsof -c mysql     //查看mysql进程打开的文件
 
+- 查看目录下的文件数,包括子目录
+
+        # find ./ -type f | wc -l 
+        # ls -l | grep '^-' | wc -l
+
+- 删除空行
+        
+        # sed '/^$/d' file.txt
+
+- find 
+
+        # find /tmp -type f -iname "*.jpg" -ctime +100 | wc -l        //查找100天以前的jpg文件  -ctime -n指n天以内，+n指n天以前
+
+        # find /tmp -size 0 -exec rm {} \;      // 产出大小为0的文件
+        
+        # find /tmp -iname "*.jpg" -exec /usr/bin/gm convert +profile "*" -quality 85 {} {} \;      //查找jpg文件并做convert
+
+    
 
 
