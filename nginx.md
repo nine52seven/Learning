@@ -178,6 +178,36 @@ nginx设置:
     /usr/local/nginx/sbin/nginx -s reload
 
 
+优化php-fpm:
+
+    - 修改 `/etc/php5/fpm/php-fpm.conf`:
+            
+            process.max = 128
+            rlimit_files = 65535
+            events.mechanism = epoll
+
+    - 修改 `/etc/php5/fpm/pool.d/www.conf`:
+
+            listen = /tmp/php-cgi.sock
+            pm.max_children = 128
+            pm.start_servers = 30
+            pm.min_spare_servers = 5
+            pm.max_spare_servers = 40
+            pm.max_requests = 1024
+            request_terminate_timeout = 300s
+            rlimit_files = 65535
+
+    - 修改 `/etc/php5/fpm/php.ini`:
+
+            max_execution_time = 300
+            post_max_size = 8M
+            upload_max_filesize = 100M
+            max_file_uploads = 20
+            cgi.fix_pathinfo = 0
+
+
+
+
 END,GOOD LUCK!
 --------------
 
