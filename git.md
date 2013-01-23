@@ -210,6 +210,23 @@ Existing Git Repo?
         $ git config --local user.name "Your name"
         $ git config --local user.email “Your email"
 
+- 自动分发
+
+    自动分发可以有两种方法:
+
+        # cat hooks/post-receive
+        #!/bin/sh
+        GIT_WORK_TREE=<分发到的目录> git checkout -f
+
+    另一种
+
+        #cat hooks/post-receive
+        #!/bin/sh
+        DEPLOY_DIR=<分发到的目录>
+        cd $DEPLOY_DIR
+        env -i git pull
+
+    注意,两者分发到的目录的权限都需要对运行git的用户有读写权限,可以把git用户加入到apache的组里
 
 
 END,GOOD LUCK!
