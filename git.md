@@ -219,7 +219,7 @@ Existing Git Repo?
         GIT_WORK_TREE=<分发到的目录> git checkout -f
 
     另一种
-
+    
         #cat hooks/post-receive
         #!/bin/sh
         DEPLOY_DIR=<分发到的目录>

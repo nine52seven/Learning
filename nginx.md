@@ -205,7 +205,41 @@ nginx设置:
             max_file_uploads = 20
             cgi.fix_pathinfo = 0
 
+隐藏Nginx版本号
 
+        http {
+            # ...省略一些配置
+            server_tokens off;
+        }
+
+隐藏PHP的版本号
+
+    - 修改 `/etc/php5/fpm/php.ini`:
+
+            expose_php = On 
+
+下面是一些全局限制文件配置 restrictions.conf
+
+        # Global restrictions configuration file.
+        # Designed to be included in any server {} block.</p>
+        location = /favicon.ico {
+            log_not_found off;
+            access_log off;
+        }
+         
+        location = /robots.txt {
+            allow all;
+            log_not_found off;
+            access_log off;
+        }
+         
+        # Deny all attempts to access hidden files
+        # such as .htaccess, .htpasswd, .DS_Store (Mac).
+        location ~ /\. {
+            deny all;
+            access_log off;
+            log_not_found off;
+        }
 
 
 END,GOOD LUCK!
