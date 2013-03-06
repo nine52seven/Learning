@@ -8,6 +8,9 @@ git 使用
     $ git clone git://eagain.net/gitosis.git
     $ cd gitosis
     $ sudo python setup.py install
+    $ sudo -H -u git gitosis-init < /tmp/id_dsa.pub
+    $ sudo chmod 755 /home/git/gitosis-admin.git/hooks/post-update
+
     /git/repositories/gitosis-admin.git/gitosis-export/gitosis.conf 
     文件是用来设置用户、仓库和权限的控制文件。
     /git/repositories/gitosis-admin.git/keydir
