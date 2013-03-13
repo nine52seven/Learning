@@ -457,6 +457,10 @@ some tip about linux...
     
         # sudo adduser 用户名 admin
 
+    如果没有admin组,新建:
+
+        # groupadd admin
+
 - 设置VI缩进, 修改 /root/.bashrc
 
         export EXINIT="set showmode tabstop=4"

@@ -5,16 +5,19 @@ git 使用
 ---------------------
 
     $ yum install python-setuptools      //python工具
-    $ git clone git://eagain.net/gitosis.git
+    $ git clone git://github.com/res0nat0r/gitosis.git
     $ cd gitosis
     $ sudo python setup.py install
     $ sudo -H -u git gitosis-init < /tmp/id_dsa.pub
     $ sudo chmod 755 /home/git/gitosis-admin.git/hooks/post-update
 
+
     /git/repositories/gitosis-admin.git/gitosis-export/gitosis.conf 
     文件是用来设置用户、仓库和权限的控制文件。
     /git/repositories/gitosis-admin.git/keydir
     目录则是保存所有具有访问权限用户公钥的地方
+
+    $ git clone git@SERVER:gitosis-admin.git
 
         
 clone分支
@@ -230,6 +233,21 @@ Existing Git Repo?
         env -i git pull
 
     注意,两者分发到的目录的权限都需要对运行git的用户有读写权限,可以把git用户加入到apache的组里
+
+- 生成报告
+
+    [https://github.com/trybeee/GitStats](https://github.com/trybeee/GitStats)
+
+        # git clone git://github.com/trybeee/GitStats.git
+        # python ~/dev/gitstats/git-stats /youproject public
+
+
+Link:
+----
+- [GitStats](https://github.com/trybeee/GitStats) 
+- [a guide to using git](https://github.com/blynn/gitmagic)
+- [gitlab.org](http://gitlab.org/)
+- [.gitignore](https://github.com/GitHub/gitignore)
 
 
 END,GOOD LUCK!
