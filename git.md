@@ -248,6 +248,7 @@ Link:
 - [a guide to using git](https://github.com/blynn/gitmagic)
 - [gitlab.org](http://gitlab.org/)
 - [.gitignore](https://github.com/GitHub/gitignore)
+- [介绍一个成功的 Git 分支模型](http://www.oschina.net/translate/a-successful-git-branching-model)
 
 
 END,GOOD LUCK!
