@@ -249,6 +249,7 @@ Link:
 - [gitlab.org](http://gitlab.org/)
 - [.gitignore](https://github.com/GitHub/gitignore)
 - [介绍一个成功的 Git 分支模型](http://www.oschina.net/translate/a-successful-git-branching-model)
+- [gitosis](https://github.com/res0nat0r/gitosis)
 
 
 END,GOOD LUCK!
