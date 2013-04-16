@@ -496,5 +496,11 @@ some tip about linux...
         bo 块设备写入数据的总量（写磁盘）（每秒kb）
         这里我们设置的bi+bo参考值为1000，如果超过1000，而且wa值较大应该考虑均衡磁盘负载，可以结合iostat输出来分析。
 
+- 查看nfs版本
+        # rpcinfo -p | grep -iE "service|NFS" 
+        or
+        # nfsstat -m
+
+
 END,GOOD LUCK!
 --------------

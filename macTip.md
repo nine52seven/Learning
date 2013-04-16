@@ -43,6 +43,9 @@ some tip about mac...
         $ sudo port upgrade SOFTNAME
         $ port outdated
 
+- Mac excel 单元格换行
+    
+    按option+command+enter 
 
 
 END,GOOD LUCK!
