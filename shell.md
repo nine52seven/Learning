@@ -86,6 +86,6 @@ about Bash...
         
         # find /tmp -iname "*.jpg" -exec /usr/bin/gm convert +profile "*" -quality 85 {} {} \;      //查找jpg文件并做convert
 
-    
+        # find . -exec grep 'hello' {} \; -print  //当前目录查找包含hello内容的文件并打印
 
 

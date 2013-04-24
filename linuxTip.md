@@ -501,6 +501,19 @@ some tip about linux...
         or
         # nfsstat -m
 
+- 查看服务器硬件信息
+        机器型号
+        # dmidecode | grep Product
+        内存
+        # dmidecode |grep -A16 "Memory Device$"
+        硬盘
+        # smartctl -a /dev/sda
+        主板
+        # dmidecode |grep -A16 "System Information$"
+        网卡
+        # mii-tool
+        cpu
+        # cat /proc/cpuinfo
 
 END,GOOD LUCK!
 --------------

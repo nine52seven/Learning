@@ -282,6 +282,7 @@ keepalived 主备iptables设置
     -A   INPUT   -d   224.0.0.0/8   -j   ACCEPT
     -A   INPUT    -p   vrrp   -j   ACCEPT
 
+ps: realserver需要开启vip的访问权限
 
 测试
 ----
