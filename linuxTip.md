@@ -467,6 +467,7 @@ some tip about linux...
 
 
 - vmstat
+
         # vmstat
         procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
          r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
@@ -497,11 +498,13 @@ some tip about linux...
         这里我们设置的bi+bo参考值为1000，如果超过1000，而且wa值较大应该考虑均衡磁盘负载，可以结合iostat输出来分析。
 
 - 查看nfs版本
+
         # rpcinfo -p | grep -iE "service|NFS" 
         or
         # nfsstat -m
 
 - 查看服务器硬件信息
+
         机器型号
         # dmidecode | grep Product
         内存
@@ -514,6 +517,24 @@ some tip about linux...
         # mii-tool
         cpu
         # cat /proc/cpuinfo
+
+- vpn服务器添加nat转发
+
+        # iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
+
+        # iptables -I FORWARD -s 192.168.0.0/24 -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1300
+
+-
+        在Ubuntu下安装service服务，可能会报如下错误：
+         /sbin/insserv: No such file or directory
+
+         $ sudo ln -s /usr/lib/insserv/insserv /sbin/insserv
+
+- ubuntu 10.04 安装megacli
+
+        # echo "deb http://hwraid.le-vert.net/debian lenny main" >> /etc/apt/sources.list
+        # apt-get update && apt-get install megactl
+
 
 END,GOOD LUCK!
 --------------

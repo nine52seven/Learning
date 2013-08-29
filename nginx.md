@@ -241,6 +241,28 @@ nginx设置:
             log_not_found off;
         }
 
+添加basic验证
+
+        server {
+          # 省略无关配置
+          # .....
+
+          auth_basic "SHOW YOUR IDENTITY!!";
+          auth_basic_user_file /path/to/htpasswd;
+
+          # 可选：显示自定义的 401 页面
+          error_page 401 /401.html;
+          location = /401.html {
+              auth_basic off;
+              root /opt/nginx/html;
+          }
+
+          location ~ ^/(api|uploads) {
+            auth_basic off;
+            # 省略无关配置
+            # .....
+          }
+        }
 
 END,GOOD LUCK!
 --------------
