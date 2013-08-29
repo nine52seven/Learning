@@ -21,6 +21,7 @@ Typeahead 输入提示
                             states = [];
                             map = {};
                             $.each(data, function (i, state) {
+                                state.login = "[" + state.id + "]" + state.login;
                                 map[state.login] = state;
                                 states.push(state.login);
                             });
