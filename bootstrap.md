@@ -25,7 +25,6 @@ Typeahead 输入提示
                                 map[state.login] = state;
                                 states.push(state.login);
                             });
-
                             process(states);
                         })
                 },
@@ -38,7 +37,6 @@ Typeahead 输入提示
                     var regex = new RegExp( '(' + this.query + ')', 'gi' );
                     return item.replace( regex, "<strong>$1</strong>" );
                 }
-
             });
         });
         </script>
