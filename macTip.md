@@ -14,8 +14,12 @@ some tip about mac...
 
         $ ssh-copy-id -i ~/.ssh/id_rsa.pub 'username@host'
 
+    如果默认端口不是22,则:
+
+        $ ssh-copy-id -i ~/.ssh/id_rsa.pub "-p port username@host"
+
 - 安装macports
-    下载: 
+    下载:
 
     [http://www.macports.org](http://www.macports.org/)
 
@@ -44,8 +48,8 @@ some tip about mac...
         $ port outdated
 
 - Mac excel 单元格换行
-    
-    按option+command+enter 
+
+    按option+command+enter
 
 
 END,GOOD LUCK!
