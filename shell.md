@@ -53,12 +53,12 @@ about Bash...
 
 - 比较
 
-        -eq 等于 
-        -ne 不等于 
-        -gt 大于 
-        -ge 大于等于 
-        -lt 小于 
-        -le 小于等于 
+        -eq 等于
+        -ne 不等于
+        -gt 大于
+        -ge 大于等于
+        -lt 小于
+        -le 小于等于
 
 - 分割文件
 
@@ -71,21 +71,23 @@ about Bash...
 
 - 查看目录下的文件数,包括子目录
 
-        # find ./ -type f | wc -l 
+        # find ./ -type f | wc -l
         # ls -l | grep '^-' | wc -l
 
 - 删除空行
-        
+
         # sed '/^$/d' file.txt
 
-- find 
+- find
 
         # find /tmp -type f -iname "*.jpg" -ctime +100 | wc -l        //查找100天以前的jpg文件  -ctime -n指n天以内，+n指n天以前
 
         # find /tmp -size 0 -exec rm {} \;      // 产出大小为0的文件
-        
+
         # find /tmp -iname "*.jpg" -exec /usr/bin/gm convert +profile "*" -quality 85 {} {} \;      //查找jpg文件并做convert
 
         # find . -exec grep 'hello' {} \; -print  //当前目录查找包含hello内容的文件并打印
 
+- 按行数截取文件
 
+        # sed -n '3,10p' myfile > newfile
