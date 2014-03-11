@@ -3,6 +3,47 @@ study opencv...
 
 > [OpenCV](http://www.opencv.org/) 的全称是Open Source Computer Vision Library，是一个跨平台的计算机视觉库。OpenCV是由英特尔公司发起并参与开发，以BSD许可证授权发行，可以在商业和研究领域中免费使用。OpenCV可用于开发实时的图像处理、计算机视觉以及模式识别程序。该程序库也可以使用英特尔公司的IPP进行加速处理。
 
+安装
+----
+下载最新的源代码,解压,比如: opencv-2.4.8
+
+    $ cd ~/opencv.2.4.8  # the directory should contain CMakeLists.txt, INSTALL etc.
+    $ mkdir  build       # create the output directory
+    $ cd build
+    $ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+    $ make      # long time
+    $ sudo make install
+
+如果`/etc/ld.so.conf.d/libc.conf`中没有`/usr/local/lib`路径,添加上
+
+    $ sudo ldconfig      #
+
+或者:
+
+    $ export LD_LIBRARY_PATH=/usr/local/lib
+    $ sudo ldconfig
+
+依赖软件:
+
+    $ apt-get install make cmake pkg-config python python-dev python-numpy g++
+
+
+编译安装gearman:
+
+    $ ./configure
+    $ make
+    $ make install
+
+依赖软件:
+
+    $ apt-get install libboost1.48-dev libboost-program-options-dev gperf uuid-dev libevent-dev
+
+    $ apt-get install libreadline-dev libncurses5-dev libpcre3-dev libssl-dev
+
+安装gearman for php:
+
+    $ pecl install gearman
+
 读取文件
 ----
 
