@@ -44,6 +44,59 @@ study opencv...
 
     $ pecl install gearman
 
+安装supervisor:
+
+    $ apt-get install supervisor
+
+配置样例
+
+    [program:gearman]
+    command= /usr/sbin/gearmand -L 100.79.118.89 -d
+    process_name=%(program_name)s
+    numprocs=1
+    #process_name=%(program_name)s_%(process_num)02d
+    #numprocs=2
+    #directory=/my/worker/direct
+    autostart=true
+    autorestart=true
+    user=root
+    stdout_logfile=/var/log/supervisor/gearman_stdout.log
+    stdout_logfile_maxbytes=1MB
+    stderr_logfile=/var/log/supervisor/gearman_stderr.log
+    stderr_logfile_maxbytes=1MB
+
+控制命令:
+
+    $ supervisorctl status
+    $ supervisorctl status gearman
+    $ supervisorctl stop gearman
+    $ supervisorctl start gearman
+
+配置选项:
+
+    process_name=%(program_name)s ＃进程名称，默认是程序名称
+    numprocs=1 ＃进程数量
+    directory=/tmp ＃路径
+    umask=022 ＃掩码
+    priority=999 ＃优先级，越大,最后启动,首先关闭
+    autorestart=true ＃自动重启
+    startsecs=10 ＃启动等待时间（秒）
+    startretries=3 ＃启动重试次数
+    stopsignal=TERM ＃关闭信号
+    stopwaitsecs=10 ＃关闭前等待时间
+    user=chrism ＃监控用户权限
+    redirect_stderr=false ＃重定向报错输出
+    stdout_logfile=/a/path ＃输入重定向为日志
+    stdout_logfile_maxbytes=1MB ＃日志大小
+    stdout_logfile_backups=10 ＃日志备份
+    stdout_capture_maxbytes=1MB
+    stderr_logfile=/a/path
+    stderr_logfile_maxbytes=1MB
+    stderr_logfile_backups=10
+    stderr_capture_maxbytes=1MB
+    environment=A=1,B=2 ＃预定义环境变量
+    serverurl=AUTO ＃系统URL
+
 读取文件
 ----
 
