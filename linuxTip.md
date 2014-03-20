@@ -68,7 +68,7 @@ some tip about linux...
         # /etc/init.d/mysql start
 
 - 启动 `mysql 5.5` 的半同步
-    
+
         master  > INSTALL PLUGIN rpl_semi_sync_master soname 'semisync_master.so';
         slave-x > INSTALL PLUGIN rpl_semi_sync_slave SONAME 'semisync_slave.so’;
         master  > SET GLOBAL rpl_semi_sync_master_enabled=1;
@@ -77,7 +77,7 @@ some tip about linux...
   如果是更新,需要先:
 
         mysql> UNINSTALL PLUGIN rpl_semi_sync_master;
-    
+
 - 查看网卡的速率:
 
         # ethtool eth0
@@ -129,10 +129,10 @@ some tip about linux...
     - 度量衡表达方式(LC_MEASUREMENT)
     - 默认纸张尺寸大小(LC_PAPER)
     - 对locale自身包含信息的概述(LC_IDENTIFICATION)。
-        
+
 
     安装
-    
+
         $ sudo cat /usr/share/i18n/SUPPORTED | grep 'en_US' > /var/lib/locales/supported.d/local
         $ sudo cat /usr/share/i18n/SUPPORTED | grep 'zh_CN' >> /var/lib/locales/supported.d/local
         $ sudo locale-gen --purge
@@ -148,7 +148,7 @@ some tip about linux...
         $ locale -a
 
     修改locale
-        
+
         $ export LC_ALL='en_US.UTF-8'
 
     参考: http://wiki.ubuntu.org.cn/Locale
@@ -156,7 +156,7 @@ some tip about linux...
 - ubuntu 升级
 
     先升级下各软件
-        
+
         $ sudo apt-get update
         $ sudo apt-get upgrade
 
@@ -169,7 +169,7 @@ some tip about linux...
 
     完成以后重启,运行下面命令,就可以看到新版本的信息了
 
-        $ lsb_release -a 
+        $ lsb_release -a
 
 
 - ubuntu 安装deb包
@@ -191,7 +191,7 @@ some tip about linux...
         $ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
     显示
-        
+
         - 0 --> Enabled
         - 1 --> Disabled
 
@@ -266,17 +266,17 @@ some tip about linux...
     在 `root    ALL=(ALL:ALL) ALL` 行下面添加一行
 
         newuser    ALL=(ALL:ALL) ALL    #newuser为要添加sudo权限的用户
-        # chmod u-w /etc/sudoers 
+        # chmod u-w /etc/sudoers
 
 - ubuntu做网关,ufw需要打开转发功能
-    
+
         # echo 1 > /proc/sys/net/ipv4/ip_forward
         # vi /etc/default/ufw
 
     修改 `DEFAULT_FORWARD_POLICY="ACCEPT"`
 
 - centos新建隧道,打开转发和NAT
-    
+
         # ip tunnel add tunnel0 mode ipip remote yyy.yyy.yyy.yyy local xxx.xxx.xxx.xxx
         # ip link set tunnel0 up
         # ip addr add 10.10.9.2/24 dev tunnel0
@@ -292,33 +292,33 @@ some tip about linux...
     另外 ip_forward需要打开
 
 - 同步文件
-    
+
     使用inotify+rsync从一个服务器实时同步到多个服务器上,下面是bash脚本,需要安装inotify-tools,rsync服务
 
-        #!/bin/sh 
+        #!/bin/sh
         srcdir="/var/html/"  #源目录
         ipaddress="192.168.1.100 192.168.1.200"  #目标服务器,可以多个
         dstdir="/var/html/"  #目标目录
         noinclude="tmp"   #忽略目录,相对路径
         if [ -n "$1" ]; then
-            for i in $ipaddress; 
+            for i in $ipaddress;
             do
                 rsync -aqztH --exclude=${noinclude} --delete --progress ${srcdir} root@${i}:${dstdir}
             done
             exit;
         fi
 
-        /usr/bin/inotifywait -mrq --exclude=${noinclude} --timefm '%d/%m/%y-%H:%M' --format '%T %w%f' -e modify,delete,create,attrib ${srcdir} | while read file 
-        do 
+        /usr/bin/inotifywait -mrq --exclude=${noinclude} --timefm '%d/%m/%y-%H:%M' --format '%T %w%f' -e modify,delete,create,attrib ${srcdir} | while read file
+        do
             for i in $ipaddress; do
                 rsync -aqztH --exclude=${noinclude} --delete --progress ${srcdir} root@${i}:${dstdir}
-            done    
+            done
         done
 
     此脚本是预先做了ssh密钥登陆设置,所以同步的时候不需要数据登陆密码,加个参数(任意)可以预先同步过去,然后再在后台运行此程序即可
 
 - 优化linux
-    
+
     内核优化
 
         net.ipv4.tcp_max_syn_backlog = 65536
@@ -366,16 +366,16 @@ some tip about linux...
 - mail发送邮件
 
         # /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME < content.txt
-        # echo "mail content" | /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME 
+        # echo "mail content" | /usr/bin/mail -s "mail title" email@email.com -- -f from@from.com -F SENDERNAME
 
 - apache优化
 
     - HostnameLookups设置为off
-        
+
         HostnameLookups Off
 
     - 为Directory加上FollowSymLinks
-        
+
         Options FollowSymLinks
 
     - 将AllowOverride设置为None
@@ -454,7 +454,7 @@ some tip about linux...
         RequestHeader set ModPagespeed off env=turn_off_mps
 
 - 添加sodu 权限
-    
+
         # sudo adduser 用户名 admin
 
     如果没有admin组,新建:
@@ -499,7 +499,7 @@ some tip about linux...
 
 - 查看nfs版本
 
-        # rpcinfo -p | grep -iE "service|NFS" 
+        # rpcinfo -p | grep -iE "service|NFS"
         or
         # nfsstat -m
 
@@ -535,6 +535,14 @@ some tip about linux...
         # echo "deb http://hwraid.le-vert.net/debian lenny main" >> /etc/apt/sources.list
         # apt-get update && apt-get install megactl
 
+- 彻底删除mysql
+        # apt-get --purge remove mysql-server
+        # apt-get --purge remove mysql-client
+        # apt-get --purge remove mysql-common
+        # apt-get autoremove
+        # apt-get autoclean
+        # rm /etc/mysql/ -R
+        # rm /var/lib/mysql/ -R
 
 END,GOOD LUCK!
 --------------
