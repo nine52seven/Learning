@@ -536,6 +536,7 @@ some tip about linux...
         # apt-get update && apt-get install megactl
 
 - 彻底删除mysql
+
         # apt-get --purge remove mysql-server
         # apt-get --purge remove mysql-client
         # apt-get --purge remove mysql-common
@@ -543,6 +544,13 @@ some tip about linux...
         # apt-get autoclean
         # rm /etc/mysql/ -R
         # rm /var/lib/mysql/ -R
+
+- ssh 连接超时
+
+    在`/etc/ssh/sshd_config`中加入：
+
+        ClientAliveInterval 60
+        ClientAliveCountMax 3
 
 END,GOOD LUCK!
 --------------

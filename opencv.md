@@ -50,20 +50,35 @@ study opencv...
 
 配置样例
 
-    [program:gearman]
-    command= /usr/sbin/gearmand -L 100.79.118.89 -d
-    process_name=%(program_name)s
-    numprocs=1
-    #process_name=%(program_name)s_%(process_num)02d
-    #numprocs=2
-    #directory=/my/worker/direct
-    autostart=true
-    autorestart=true
-    user=root
-    stdout_logfile=/var/log/supervisor/gearman_stdout.log
-    stdout_logfile_maxbytes=1MB
-    stderr_logfile=/var/log/supervisor/gearman_stderr.log
-    stderr_logfile_maxbytes=1MB
+[program:gearman]
+command= /usr/sbin/gearmand -L 100.79.118.89 -d
+process_name=%(program_name)s
+numprocs=1
+#process_name=%(program_name)s_%(process_num)02d
+#numprocs=2
+#directory=/my/worker/direct
+autostart=true
+autorestart=true
+user=root
+stdout_logfile=/var/log/supervisor/gearman_stdout.log
+stdout_logfile_maxbytes=1MB
+stderr_logfile=/var/log/supervisor/gearman_stderr.log
+stderr_logfile_maxbytes=1MB
+
+[program:getfeature_worker]
+command= /usr/bin/php /home/worksinfo/getfeature_bat_worker.php
+#process_name=%(program_name)s
+#numprocs=1
+process_name=%(program_name)s_%(process_num)02d
+numprocs=2
+#directory=/my/worker/direct
+autostart=true
+autorestart=true
+user=root
+stdout_logfile=/var/log/supervisor/getfeature_worker_stdout.log
+stdout_logfile_maxbytes=1MB
+stderr_logfile=/var/log/supervisor/getfeature_worker_stderr.log
+stderr_logfile_maxbytes=1MB
 
 控制命令:
 
@@ -96,6 +111,13 @@ study opencv...
     stderr_capture_maxbytes=1MB
     environment=A=1,B=2 ＃预定义环境变量
     serverurl=AUTO ＃系统URL
+
+安装php-handlersocket:
+
+    $ phpize
+    $ ./configure  or  ./configure --disable-handlersocket-hsclient
+    $ make
+    # make install
 
 读取文件
 ----
